@@ -1,0 +1,11 @@
+<h1>尻取り一覧</h1>
+
+<ul>
+  <% @words.each do |word| %>
+    <li><%= link_to word.id, word %> : <%= word.content %></li>
+  <% end %>
+</ul>
+
+<%= link_to '新規尻取りの投稿', new_word_path %>
+
+<%= current_user.id %>

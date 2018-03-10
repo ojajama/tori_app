@@ -1,0 +1,7 @@
+<h1>id: <%= @word.id %> の尻取り</h1>
+
+<p><%= @word.content %></p>
+
+<%= link_to '一覧に戻る', words_path %>
+<%= link_to 'この尻取りを編集する', edit_word_path(@word) %>
+<%= link_to 'この尻取りを削除する', @word, method: :delete, data: { confirm: '本当に削除してよろしいですか？' } %>

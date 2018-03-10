@@ -1,0 +1,7 @@
+<h1>こんにちは、<%= current_user.username %>さん</h1>
+<h1>尻取りはじめましょ</h1>
+<ul>
+  <%# @words.each do |word| %>
+    <li><%= link_to @word.id, word %> : <%= @word.content %></li>
+  <%# end %>
+</ul>
