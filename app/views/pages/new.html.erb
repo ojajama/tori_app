@@ -1,0 +1,9 @@
+<h1>こんにちは、<%= current_user.username %>さん</h1>
+<h1>尻取り</h1>
+
+<%= form_for(@word) do |f| %>
+  <%= f.label :content, '尻取り' %>
+  <%= f.text_field :content %>
+
+  <%= f.submit '尻取り！' %>
+<% end %>

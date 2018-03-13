@@ -12,10 +12,7 @@ class WordsController < ApplicationController
   end
 
   def create
-    user = User.first
-    s = session[:user_id]
-    binding.pry
-    @word = user.words.build(word_params)
+    @word = current_user.words.build(word_params)
 
     if @word.save
       flash[:success] = '尻取りが正常に投稿されました'
