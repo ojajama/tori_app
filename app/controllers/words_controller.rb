@@ -1,6 +1,7 @@
 class WordsController < ApplicationController
   def index
-    @words = Word.all
+    @words = Word.all.order(id:"DESC")
+    @word = Word.new(content: '前の語のしっぽ')
   end
 
   def show
@@ -8,7 +9,6 @@ class WordsController < ApplicationController
   end
 
   def new
-    @word = Word.new(content: 'ご')
   end
 
   def create
@@ -16,10 +16,11 @@ class WordsController < ApplicationController
 
     if @word.save
       flash[:success] = '尻取りが正常に投稿されました'
-      redirect_to @word
+      redirect_to words_path
     else
       flash.now[:danger] = '尻取りが投稿されませんでした'
-      render :new
+      redirect_to words_path
+#      render :new
     end
   end
 

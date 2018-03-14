@@ -1,4 +1,24 @@
-<h1>尻取り一覧</h1>
+<h1>尻取り</h1>
+
+<%= form_for(@word) do |f| %>
+  <% if @word.errors.any? %>
+    <div id="error_explanation">
+      <h3>入力した内容にエラーが<%= @word.errors.count %>件あります</h3>
+      <ul>
+        <% @word.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+      <% end %>
+
+  <p>
+  <%= f.label :content, '尻取り' %>
+  <%= f.text_field :content %>
+
+  <%= f.submit '尻取り！' %>
+  </p>
+<% end %>
 
 <ul>
   <% @words.each do |word| %>
@@ -6,6 +26,5 @@
   <% end %>
 </ul>
 
-<%= link_to '新規尻取りの投稿', new_word_path %>
-
-<%= current_user.id %>
+<p>ユーザーID(テスト用)：<%= current_user.id %>
+<%= link_to current_user.username, words_path(current_user) %></p>
