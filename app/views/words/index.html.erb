@@ -24,6 +24,7 @@
   <% @words.each do |word| %>
     <li><%= link_to word.id, word %> : <%= word.content %></li>
   <% end %>
+  <p><%= paginate @words %></p>
 </ul>
 
 <p>ユーザーID(テスト用)：<%= current_user.id %>

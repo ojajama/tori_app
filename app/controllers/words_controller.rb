@@ -1,6 +1,6 @@
 class WordsController < ApplicationController
   def index
-    @words = Word.all.order(id:"DESC")
+    @words = Word.all.order(id:"DESC").page(params[:page]).per(30)
     @word = Word.new(content: '前の語のしっぽ')
   end
 
