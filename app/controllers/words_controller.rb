@@ -6,6 +6,8 @@ class WordsController < ApplicationController
 
   def show
     @word = Word.find(params[:id])
+    @yourei = Yourei.new
+    @youreis = @word.youreis.order(id:"DESC").page(params[:page]).per(20)
   end
 
   def new
@@ -53,5 +55,9 @@ class WordsController < ApplicationController
   # Strong Parameter
   def word_params
     params.require(:word).permit(:content)
+  end
+
+  def yourei_params
+    params.require(:yourei).permit(:content)
   end
 end

@@ -1,7 +1,19 @@
-<h1>id: <%= @word.id %> の尻取り</h1>
+<h1>id: <%= @word.id %><%= @word.content %> の用例</h1>
 
-<p><%= @word.content %></p>
+<%= form_for(@yourei) do |f| %>
+  <%= f.label :content, '用例' %>
+  <%= f.text_field :content %>
 
-<%= link_to '一覧に戻る', words_path %>
+  <%= f.submit '用例！' %>
+<% end %>
+
+<ul>
+  <% @word.youreis.each do |yourei| %>
+    <li><%= link_to yourei.id, yourei %> : <%= yourei.content %></li>
+  <% end %>
+  <p><%= paginate @youreis %></p>
+</ul>
+
+<%= link_to '尻取り一覧に戻る', words_path %>
 <%= link_to 'この尻取りを編集する', edit_word_path(@word) %>
 <%= link_to 'この尻取りを削除する', @word, method: :delete, data: { confirm: '本当に削除してよろしいですか？' } %>
