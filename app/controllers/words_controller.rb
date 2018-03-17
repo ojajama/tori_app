@@ -6,7 +6,7 @@ class WordsController < ApplicationController
 
   def show
     @word = Word.find(params[:id])
-    @yourei = Yourei.new
+    @yourei = @word.youreis.build
     @youreis = @word.youreis.order(id:"DESC").page(params[:page]).per(20)
   end
 
@@ -20,9 +20,8 @@ class WordsController < ApplicationController
       flash[:success] = '尻取りが正常に投稿されました'
       redirect_to words_path
     else
-      flash.now[:danger] = '尻取りが投稿されませんでした'
+      flash[:danger] = '尻取りが投稿されませんでした'
       redirect_to words_path
-#      render :new
     end
   end
 

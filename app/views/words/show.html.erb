@@ -11,8 +11,9 @@
   <% @word.youreis.each do |yourei| %>
     <li><%= link_to yourei.id, yourei %> : <%= yourei.content %></li>
   <% end %>
-  <p><%= paginate @youreis %></p>
 </ul>
+<p><%= paginate @youreis %></p>
+
 
 <%= link_to '尻取り一覧に戻る', words_path %>
 <%= link_to 'この尻取りを編集する', edit_word_path(@word) %>
