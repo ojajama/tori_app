@@ -1,0 +1,19 @@
+current directory: /Users/oja_yuki/projects/shiritori/vendor/bundle/ruby/2.5.0/gems/bcrypt-3.1.11/ext/mri
+/Users/oja_yuki/.rbenv/versions/2.5.0/bin/ruby -r ./siteconf20180320-11834-ru12nq.rb extconf.rb
+creating Makefile
+
+current directory: /Users/oja_yuki/projects/shiritori/vendor/bundle/ruby/2.5.0/gems/bcrypt-3.1.11/ext/mri
+make "DESTDIR=" clean
+
+current directory: /Users/oja_yuki/projects/shiritori/vendor/bundle/ruby/2.5.0/gems/bcrypt-3.1.11/ext/mri
+make "DESTDIR="
+compiling bcrypt_ext.c
+compiling crypt.c
+compiling crypt_blowfish.c
+compiling crypt_gensalt.c
+compiling wrapper.c
+linking shared-object bcrypt_ext.bundle
+
+current directory: /Users/oja_yuki/projects/shiritori/vendor/bundle/ruby/2.5.0/gems/bcrypt-3.1.11/ext/mri
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 bcrypt_ext.bundle ./.gem.20180320-11834-1mf9jqa

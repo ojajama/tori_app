@@ -56,7 +56,4 @@ class WordsController < ApplicationController
     params.require(:word).permit(:content)
   end
 
-  def yourei_params
-    params.require(:yourei).permit(:content)
-  end
 end

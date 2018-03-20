@@ -1,0 +1,19 @@
+current directory: /Users/oja_yuki/projects/shiritori/vendor/bundle/ruby/2.5.0/gems/byebug-10.0.0/ext/byebug
+/Users/oja_yuki/.rbenv/versions/2.5.0/bin/ruby -r ./siteconf20180320-11834-a3dk13.rb extconf.rb
+creating Makefile
+
+current directory: /Users/oja_yuki/projects/shiritori/vendor/bundle/ruby/2.5.0/gems/byebug-10.0.0/ext/byebug
+make "DESTDIR=" clean
+
+current directory: /Users/oja_yuki/projects/shiritori/vendor/bundle/ruby/2.5.0/gems/byebug-10.0.0/ext/byebug
+make "DESTDIR="
+compiling breakpoint.c
+compiling byebug.c
+compiling context.c
+compiling locker.c
+compiling threads.c
+linking shared-object byebug/byebug.bundle
+
+current directory: /Users/oja_yuki/projects/shiritori/vendor/bundle/ruby/2.5.0/gems/byebug-10.0.0/ext/byebug
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 byebug.bundle ./.gem.20180320-11834-18ds5lf/byebug

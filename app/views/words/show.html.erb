@@ -1,14 +1,16 @@
+<% breadcrumb :youreis, @word %>
+
 <h1>id: <%= @word.id %><%= @word.content %> の用例</h1>
 
 <%= form_for(@yourei) do |f| %>
   <%= f.label :content, '用例' %>
   <%= f.text_field :content %>
-
+  <%= hidden_field_tag :word_id, @word.id %>
   <%= f.submit '用例！' %>
 <% end %>
 
 <ul>
-  <% @word.youreis.each do |yourei| %>
+  <% @youreis.each do |yourei| %>
     <li><%= link_to yourei.id, yourei %> : <%= yourei.content %></li>
   <% end %>
 </ul>

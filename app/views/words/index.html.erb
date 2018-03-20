@@ -1,6 +1,9 @@
+<% breadcrumb :words %>
+
 <h1>尻取り</h1>
 
 <%= form_for(@word) do |f| %>
+
   <% if @word.errors.any? %>
     <div id="error_explanation">
       <h3>入力した内容にエラーが<%= @word.errors.count %>件あります</h3>
