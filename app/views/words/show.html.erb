@@ -1,6 +1,6 @@
 <% breadcrumb :youreis, @word %>
 
-<h1>【<%= @word.content %>】の使い方：word.id<%= @word.id %></h1>
+<h1>word.id:<%= @word.id %>【<%= @word.content %>】の使い方</h1>
 
 <%= form_for(@yourei) do |f| %>
   <%= f.label :content, 'このことばの使い方は？' %>
@@ -11,7 +11,7 @@
 
 <ul>
   <% @youreis.each do |yourei| %>
-    <li><%= yourei.content %>　:詳しくは<%= link_to yourei.id, yourei %></li>
+    <li><%= yourei.content %>　詳しくは、yourei.id:<%= link_to yourei.id, yourei %></li>
   <% end %>
 </ul>
 <p><%= paginate @youreis %></p>

@@ -1,6 +1,8 @@
 <% breadcrumb :yourei, @youreis %>
 
-<h1><%= @yourei.content %> 使い方id:<%= @yourei.id %></h1>
+<h1><%= @yourei.content %> yourei.id:<%= @yourei.id %></h1>
 
 
 <%= link_to '尻取り一覧に戻る', words_path %>
+<%= link_to 'この使い方を編集する', edit_yourei_path(@yourei) %>
+<%= link_to 'この使い方を削除する', @yourei, method: :delete, data: { confirm: '本当に削除してよろしいですか？' } %>

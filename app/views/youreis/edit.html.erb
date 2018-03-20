@@ -1,0 +1,10 @@
+<h1>yourei.id<%= @yourei.id %>：<%= @yourei.content %></h1>
+
+<%= form_for(@yourei) do |f| %>
+  <%= f.label :content, '書き直すなら' %>
+  <%= f.text_field :content %>
+
+  <%= f.submit 'こう直す！' %>
+<% end %>
+
+<%= link_to '尻取り一覧に戻る', words_path %>

@@ -16,8 +16,28 @@ class YoureisController < ApplicationController
     redirect_to @word
   end
 
-  def destroy
+  def edit
+    @yourei = Yourei.find(params[:id])
   end
+
+  def update
+    @yourei = Yourei.find(params[:id])
+    if @yourei.update(yourei_params)
+      flash[:success] = '他の、使い方'
+      redirect_to @yourei
+    else
+      flash.now[:danger] = '使い方、書き直す！'
+      render :edit
+    end
+  end
+
+  def destroy
+    @yourei = Yourei.find(params[:id])
+    @yourei.destroy
+
+    flash[:success] = 'この使い方、消す'
+    redirect_to words_url
+   end
 
   private
 

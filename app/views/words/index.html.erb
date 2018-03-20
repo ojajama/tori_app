@@ -27,7 +27,7 @@
 
 <ul>
   <% @words.each do |word| %>
-    <li><%= word.content %>：使い方は<%= link_to word.id, word %></li>
+    <li>【<%= word.content %>】　使い方は、word.id:<%= link_to word.id, word %></li>
   <% end %>
   <p><%= paginate @words %></p>
 </ul>

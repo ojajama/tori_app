@@ -7,7 +7,8 @@ crumb :words do
 end
 
 crumb :youreis do |yourei|
-   link "使い方集", youreis_path(yourei)
+   link "使い方集", yourei_path
+   #リンク先が分からない
    parent :words
 end
 
