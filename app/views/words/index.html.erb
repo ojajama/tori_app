@@ -1,6 +1,8 @@
 <% breadcrumb :words %>
 
-<h1>尻取り</h1>
+<h3>尻取りしましょ</h3>
+
+<h1>【<%= @new_word.content %>】</h1>
 
 <%= form_for(@word) do |f| %>
 
@@ -16,7 +18,7 @@
       <% end %>
 
   <p>
-  <%= f.label :content, '尻取り' %>
+  <%= f.label :content, '次のことばは…' %>
   <%= f.text_field :content %>
 
   <%= f.submit '尻取り！' %>
@@ -25,7 +27,7 @@
 
 <ul>
   <% @words.each do |word| %>
-    <li><%= link_to word.id, word %> : <%= word.content %></li>
+    <li><%= word.content %>：使い方は<%= link_to word.id, word %></li>
   <% end %>
   <p><%= paginate @words %></p>
 </ul>

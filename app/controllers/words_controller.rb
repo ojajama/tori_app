@@ -2,6 +2,7 @@ class WordsController < ApplicationController
   def index
     @words = Word.all.order(id:"DESC").page(params[:page]).per(30)
     @word = Word.new(content: '前の語のしっぽ')
+    @new_word = Word.last
   end
 
   def show
@@ -17,10 +18,10 @@ class WordsController < ApplicationController
     @word = current_user.words.build(word_params)
 
     if @word.save
-      flash[:success] = '尻取りが正常に投稿されました'
+      flash[:success] = '尻取り、続きます！'
       redirect_to words_path
     else
-      flash[:danger] = '尻取りが投稿されませんでした'
+      flash[:danger] = 'もう一度、尻取り'
       redirect_to words_path
     end
   end
@@ -33,10 +34,10 @@ class WordsController < ApplicationController
     @word = Word.find(params[:id])
 
     if @word.update(word_params)
-      flash[:success] = '尻取りは正常に更新されました'
+      flash[:success] = '新たに、尻取り'
       redirect_to @word
     else
-      flash.now[:danger] = '尻取りは更新されませんでした'
+      flash.now[:danger] = '尻取り、もう一度！'
       render :edit
     end
   end
@@ -45,7 +46,7 @@ class WordsController < ApplicationController
     @word = Word.find(params[:id])
     @word.destroy
 
-    flash[:success] = '尻取りは正常に削除されました'
+    flash[:success] = 'いまの尻取りやめた'
     redirect_to words_url
    end
 

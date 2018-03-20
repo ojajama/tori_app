@@ -1,18 +1,18 @@
 crumb :root do
-  link "Home", root_path
+  link "入口", root_path
 end
 
 crumb :words do
-   link "尻取り一覧", words_path
+   link "いままでの尻取り", words_path
 end
 
 crumb :youreis do |yourei|
-   link "用例一覧", youreis_path(yourei)
+   link "使い方集", youreis_path(yourei)
    parent :words
 end
 
 crumb :yourei do |yourei|
-   link "用例", words_path
+   link "使い方例", words_path
    parent :youreis
 end
 

@@ -8,10 +8,10 @@ class YoureisController < ApplicationController
     @word = Word.find(params[:word_id])
     @yourei = @word.youreis.build(yourei_params)
     if @yourei.save
-      flash[:success] = '用例を投稿しました。'
+      flash[:success] = '使い方、追加！'
     else
       @youreis = @word.youreis.order('created_at DESC').page(params[:page])
-      flash[:danger] = '用例の投稿に失敗しました。'
+      flash[:danger] = '他の、使い方を！'
     end
     redirect_to @word
   end
