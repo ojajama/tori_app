@@ -5,9 +5,10 @@ class YoureisController < ApplicationController
   end
 
   def create
+    user = User.find(1)
     @word = Word.find(params[:word_id])
-    @yourei = @word.youreis.build(yourei_params)
-    if @yourei.save
+    @yourei = @words.user.youreis.build(yourei_params)
+    if @yourei.save!
       flash[:success] = '使い方、追加！'
     else
       @youreis = @word.youreis.order('created_at DESC').page(params[:page])
