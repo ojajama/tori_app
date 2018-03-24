@@ -5,9 +5,9 @@ class YoureisController < ApplicationController
   end
 
   def create
-    user = User.find(1)
     @word = Word.find(params[:word_id])
-    @yourei = @words.user.youreis.build(yourei_params)
+    @yourei = @word.user.youreis.build(yourei_params)
+    @yourei.word_id = @word.id
     if @yourei.save!
       flash[:success] = '使い方、追加！'
     else
