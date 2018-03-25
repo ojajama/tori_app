@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180322002236) do
+ActiveRecord::Schema.define(version: 20180324235402) do
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -38,7 +38,14 @@ ActiveRecord::Schema.define(version: 20180322002236) do
     t.index ["user_id"], name: "index_words_on_user_id"
   end
 
-# Could not dump table "youreis" because of following StandardError
-#   Unknown type 'reference' for column 'user'
+  create_table "youreis", force: :cascade do |t|
+    t.text "content"
+    t.integer "word_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_youreis_on_user_id"
+    t.index ["word_id"], name: "index_youreis_on_word_id"
+  end
 
 end
