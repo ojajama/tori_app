@@ -1,4 +1,6 @@
 <h3>尻取りしましょ</h3>
 
 <p>次のことばに続けて！</p>
-<h1>【<%= @word.content %>】</h1>
+<% unless @word.nil? %>
+  <h1>【<%= @word.content %>】</h1>
+<% end %>

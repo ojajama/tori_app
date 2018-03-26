@@ -2,7 +2,9 @@
 
 <h3>尻取りしましょ</h3>
 
-<h1>【<%= @new_word.content %></h1>
+<% unless @new_word.nil? %>
+  <h1>【<%= @new_word.content %>】</h1>
+<% end %>
 
 <%= form_for(@word) do |f| %>
 
