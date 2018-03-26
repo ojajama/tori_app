@@ -11,7 +11,7 @@
 
 <ul>
   <% @youreis.each do |yourei| %>
-    <li><%= yourei.content %> by <%= yourei.word.user.username %>　詳しくは、yourei.id:<%= link_to yourei.id, yourei %></li>
+    <li><%= yourei.content %> by <%= yourei.user.username %>　詳しくは、yourei.id:<%= link_to yourei.id, yourei %></li>
   <% end %>
 </ul>
 <p><%= paginate @youreis %></p>

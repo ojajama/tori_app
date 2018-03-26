@@ -32,16 +32,22 @@
               <span class="icon-bar"></span>
             </button>
           </div>
+
+          <div class="navbar-collapse collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-left">
+
               <% if user_signed_in? %>
-              <%= link_to current_user.username, words_path(current_user) %>
-              <%= link_to 'プロフィール変更', edit_user_registration_path %>
-              <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+              <li class="navbar-text"><%= link_to current_user.username, words_path(current_user) %></li>
+              <li class="navbar-text"><%= link_to 'プロフィール変更', edit_user_registration_path %></li>
+              <li class="navbar-text"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
               <% else %>
-              <%= link_to 'ユーザ登録', new_user_registration_path %>
-              <%= link_to 'ログイン', new_user_session_path %>
-              ログインしないで尻取り(未リンク)<%#= link_to 'ログインしないで尻取り',  %>
+              <li class="navbar-text"><%= link_to 'ユーザ登録', new_user_registration_path %></li>
+              <li class="navbar-text"><%= link_to 'ログイン', new_user_session_path %></li>
+              <li class="navbar-text"><%= link_to 'ログインしないで尻取り(仮)', pages_path %></li>
               <% end %>
 
+            </ul>
+          </div>
         </div>
       </nav>
     </header>

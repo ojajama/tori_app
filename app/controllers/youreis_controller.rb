@@ -8,11 +8,11 @@ class YoureisController < ApplicationController
     @word = Word.find(params[:word_id])
     @yourei = current_user.youreis.build(yourei_params)
     @yourei.word_id = @word.id
-    if @yourei.save!
-      flash[:success] = '使い方、追加！'
+    if @yourei.save
+      flash[:success] = '使い方、加わりました。'
     else
       @youreis = @word.youreis.order('created_at DESC').page(params[:page])
-      flash[:danger] = '他の、使い方を！'
+      flash[:danger] = '使い方、書き込んで！'
     end
     redirect_to @word
   end
@@ -24,10 +24,10 @@ class YoureisController < ApplicationController
   def update
     @yourei = Yourei.find(params[:id])
     if @yourei.update(yourei_params)
-      flash[:success] = '他の、使い方'
+      flash[:success] = '使い方、書き直しました。'
       redirect_to @yourei
     else
-      flash.now[:danger] = '使い方、書き直す！'
+      flash.now[:danger] = '使い方、書き直しましょう！'
       render :edit
     end
   end
@@ -36,7 +36,7 @@ class YoureisController < ApplicationController
     @yourei = Yourei.find(params[:id])
     @yourei.destroy
 
-    flash[:success] = 'この使い方、消す'
+    flash[:success] = '使い方、削りました。'
     redirect_to words_url
    end
 

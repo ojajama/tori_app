@@ -2,5 +2,6 @@
 
 <p>次のことばに続けて！</p>
 <% unless @word.nil? %>
-  <h1>【<%= @word.content %>】</h1>
+  <h1>【<%= link_to @word.content, words_path(current_user) %>】</h1>
 <% end %>
+<p>#ログインしてない場合、未対処</p>

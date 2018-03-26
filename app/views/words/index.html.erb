@@ -29,7 +29,7 @@
 
 <ul>
   <% @words.each do |word| %>
-    <li><%= word.user.username %>【<%= word.content %>】　使い方は、word.id:<%= link_to word.id, word %></li>
+    <li><%= word.user.username %>【<%= word.content %>】word.id:<%= link_to word.id, word %>の使い方</li>
   <% end %>
   <p><%= paginate @words %></p>
 </ul>
