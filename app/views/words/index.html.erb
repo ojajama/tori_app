@@ -34,5 +34,10 @@
   <p><%= paginate @words %></p>
 </ul>
 
-<p>ユーザーID(テスト用)：<%= current_user.id %>
+<% if user_signed_in? %>
+<p>ちゃんとログインしたユーザーID：<%= current_user.id %>
 <%= link_to current_user.username, words_path(current_user) %></p>
+<% else %>
+<p>ちゃんとログインしていないユーザーID：<%= 4 %>
+<%= link_to User.find(4).username, words_path %></p>
+<% end %>
