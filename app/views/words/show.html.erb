@@ -1,9 +1,9 @@
 <% breadcrumb :youreis, @word %>
 
-<h1>word.id:<%= @word.id %>【<%= @word.content %>】の使い方</h1>
+<h1>word.id:<%= @word.id %>【<%= @word.content %>】</h1>
 
 <%= form_for(@yourei) do |f| %>
-  <%= f.label :content, 'このことばの使い方は？' %>
+  <%= f.label :content, '用例は？' %>
   <%= f.text_field :content %>
   <%= hidden_field_tag :word_id, @word.id %>
   <%= f.submit 'こう使う！' %>
@@ -18,5 +18,5 @@
 
 
 <%= link_to '尻取り一覧に戻る', words_path %>
-<%= link_to 'この尻取りを編集する', edit_word_path(@word) %>
-<%= link_to 'この尻取りを削除する', @word, method: :delete, data: { confirm: '本当に削除してよろしいですか？' } %>
+<%= link_to '尻取りを編集', edit_word_path(@word) %>
+<%= link_to '尻取りを削除', @word, method: :delete, data: { confirm: '本当に削除してよろしいですか？' } %>

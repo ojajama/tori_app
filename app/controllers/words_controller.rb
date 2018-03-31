@@ -6,16 +6,26 @@ class WordsController < ApplicationController
 #    @new_word_right = @new_word.content[-1]
 #    @new_word_right2 = @new_word.content[-2]
 
-#    @word = Word.new
-
-    if @new_word.content[-1] == "/[んン]/"#正規表現のorが効かない
+    if
+      @new_word.content[-1] =~ /[んンゃゅょっャュョッぁぃぅぇぉァィゥェォー]/ &&
+      @new_word.content[-2] =~ /[んンゃゅょっャュョッぁぃぅぇぉァィゥェォー]/ &&
+      @new_word.content[-3] =~ /[んンゃゅょっャュョッぁぃぅぇぉァィゥェォー]/ &&
+      @new_word.content[-4] =~ /[^んンゃゅょっャュョッぁぃぅぇぉァィゥェォー]/
+      @word = Word.new(content: @new_word.content[-4])
+    elsif
+      @new_word.content[-1] =~ /[んンゃゅょっャュョッぁぃぅぇぉァィゥェォー]/ &&
+      @new_word.content[-2] =~ /[んンゃゅょっャュョッぁぃぅぇぉァィゥェォー]/ &&
+      @new_word.content[-3] =~ /[^んンゃゅょっャュョッぁぃぅぇぉァィゥェォー]/ &&
+      @word = Word.new(content: @new_word.content[-3])
+    elsif
+      @new_word.content[-1] =~ /[んンゃゅょっャュョッぁぃぅぇぉァィゥェォー]/ &&
+      @new_word.content[-2] =~ /[^んンゃゅょっャュョッぁぃぅぇぉァィゥェォー]/ &&
       @word = Word.new(content: @new_word.content[-2])
-    elsif @new_word.content[-1] == "/[ゃ−ょっ]/"#後ろから二番目が長音撥音だったら
-      @word = Word.new(content: @new_word.content[-2])
-    elsif @new_word.content[-1] == "/[ぁ−ぉー]/"#後ろから二番目が拗音撥音促音だったら
-      @word = Word.new(content: @new_word.content[-2])
-    else
+    elsif
+      @new_word.content[-1] =~ /[^んンゃゅょっャュョッぁぃぅぇぉァィゥェォー]/ &&
       @word = Word.new(content: @new_word.content[-1])
+    else
+      @word = Word.new(content: "ムズっ！")
     end
   end
 
@@ -32,10 +42,10 @@ class WordsController < ApplicationController
     @word = current_user.words.build(word_params)
 
     if @word.save
-      flash[:success] = '尻取り、続けましょう！'
+      flash[:success] = '尻取り、続けよう！'
       redirect_to words_path
     else
-      flash[:danger] = 'もう一度、尻取り考えて。'
+      flash[:danger] = '尻取り、やり直し。'
       redirect_to words_path
     end
   end
@@ -48,10 +58,10 @@ class WordsController < ApplicationController
     @word = Word.find(params[:id])
 
     if @word.update(word_params)
-      flash[:success] = '尻取り、加わりました。'
+      flash[:success] = '尻取り、追加。'
       redirect_to @word
     else
-      flash.now[:danger] = '尻取り、もう一度考えて！'
+      flash.now[:danger] = '尻取り、やり直し。'
       render :edit
     end
   end
@@ -60,7 +70,7 @@ class WordsController < ApplicationController
     @word = Word.find(params[:id])
     @word.destroy
 
-    flash[:success] = '尻取り、削ります。'
+    flash[:success] = '尻取り、削除。'
     redirect_to words_url
    end
 

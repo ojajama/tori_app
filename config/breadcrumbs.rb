@@ -3,17 +3,17 @@ crumb :root do
 end
 
 crumb :words do
-   link "いままでの尻取り", words_path
+   link "尻取り一覧", words_path
 end
 
 crumb :youreis do |yourei|
-   link "使い方集", yourei_path
+   link "用例集", yourei_path
    #リンク先が分からない
    parent :words
 end
 
 crumb :yourei do |yourei|
-   link "使い方例", words_path
+   link "用例", words_path
    parent :youreis
 end
 

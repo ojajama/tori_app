@@ -4,5 +4,5 @@ class Yourei < ApplicationRecord
 
   validates :word_id, presence: true
   validates :content, presence: true, length: { maximum: 511 }
-#  validates :user_id, presence: true
+  validates :user_id, presence: true
 end
