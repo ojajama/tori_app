@@ -1,5 +1,5 @@
 class AddUserRefToYoureis < ActiveRecord::Migration[5.1]
   def change
-    add_column :youreis, :user, :reference
+    add_reference :youreis, :user, foreign_key: true
   end
 end
