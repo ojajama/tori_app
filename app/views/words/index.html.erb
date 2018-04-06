@@ -7,17 +7,17 @@
 <% end %>
 
 <%= form_for(@word) do |f| %>
-
   <% if @word.errors.any? %>
     <div id="error_explanation">
-      <h3>入力した内容にエラーが<%= @word.errors.count %>件あります</h3>
+      <h2><%= @word.errors.count %>件のエラーがあります。</h2>
+
       <ul>
-        <% @word.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-          <% end %>
-        </ul>
-      </div>
+      <% @word.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
       <% end %>
+      </ul>
+    </div>
+  <% end %>
 
   <p>
   <%= f.label :content, '次のことばは…' %>
@@ -29,15 +29,14 @@
 
 <ul>
   <% @words.each do |word| %>
-    <li><%= word.user.username %>の【<%= word.content %>】word.id:<%= link_to word.id, word %>の用例</li>
+    <% if current_user.username == "名無しの権兵衛" %>
+    <li><%= word.user.username %>の【<%= word.content %>】</li>
+    <% else %>
+    <li><%= word.user.username %>の【<%= word.content %>】<%= link_to word.id, word %>の用例</li>
+    <% end %>
   <% end %>
   <p><%= paginate @words %></p>
 </ul>
 
-<% if user_signed_in? %>
-<p>ちゃんとログインしたユーザーID：<%= current_user.id %>
+<p>ユーザーID（開発用に表示）：<%= current_user.id %>
 <%= link_to current_user.username, words_path(current_user) %></p>
-<% else %>
-<p>ちゃんとログインしていないユーザーID：<%= 4 %>
-<%= link_to User.find(4).username, words_path %></p>
-<% end %>

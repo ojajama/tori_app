@@ -1,6 +1,6 @@
 <% breadcrumb :youreis, @word %>
 
-<h1>word.id:<%= @word.id %>【<%= @word.content %>】</h1>
+<h1><%= @word.id %>番目の【<%= @word.content %>】</h1>
 
 <%= form_for(@yourei) do |f| %>
   <%= f.label :content, '用例は？' %>
@@ -11,12 +11,17 @@
 
 <ul>
   <% @youreis.each do |yourei| %>
-    <li><%= yourei.content %> by <%= yourei.user.username %>　詳しくは、yourei.id:<%= link_to yourei.id, yourei %></li>
+    <li><%= yourei.content %> by <%= yourei.user.username %>
+    <% if current_user == yourei.user %>
+    書き換えるなら⇒<%= link_to yourei.id, yourei %>
+    <% else %>
+    《ヨクナイネ！》ボタンをつけたい。
+    <% end %>
+    </li>
   <% end %>
 </ul>
 <p><%= paginate @youreis %></p>
 
-
 <%= link_to '尻取り一覧に戻る', words_path %>
-<%= link_to '尻取りを編集', edit_word_path(@word) %>
-<%= link_to '尻取りを削除', @word, method: :delete, data: { confirm: '本当に削除してよろしいですか？' } %>
+<%#= link_to '尻取りを編集', edit_word_path(@word) %>
+<%#= link_to '尻取りを削除', @word, method: :delete, data: { confirm: '本当に削除してよろしいですか？' } %>

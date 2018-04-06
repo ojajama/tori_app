@@ -1,6 +1,10 @@
 <h3>尻取りしましょ</h3>
 
-<p>次のことばに続けて！</p>
+<p>次のことばに、平仮名か片仮名で、続けて！</p>
 <% unless @word.nil? %>
   <h1>【<%= link_to @word.content, words_path %>】</h1>
 <% end %>
+
+<div class="container">
+  <%= render 'layouts/sidebar' %>
+</div>

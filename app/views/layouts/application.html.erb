@@ -36,16 +36,19 @@
           <div class="navbar-collapse collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-left">
 
-              <% if user_signed_in? %>
               <li class="navbar-text"><%= link_to current_user.username, words_path(current_user) %></li>
-              <li class="navbar-text"><%= link_to 'プロフィール変更', edit_user_registration_path %></li>
-              <li class="navbar-text"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
-              <% else %>
-              <li class="navbar-text"><%= link_to User.find(4).username, words_path %></li>
+
+              <% if current_user.username == "名無しの権兵衛" %>
+
               <li class="navbar-text"><%= link_to 'ユーザ登録', new_user_registration_path %></li>
               <li class="navbar-text"><%= link_to 'ログイン', new_user_session_path %></li>
-              <% end %>
 
+              <% else %>
+
+              <li class="navbar-text"><%= link_to 'プロフィール変更', edit_user_registration_path %></li>
+              <li class="navbar-text"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+
+              <% end %>
             </ul>
           </div>
         </div>
@@ -59,6 +62,14 @@
 
       <%= yield %>
     </div>
+
+    <footer>
+      <nav>
+        <p align=center>&copy;2018 尻取り -言葉づくし-</p>
+        <p align=center>フッターを最下部に固定したい。
+          <a href="http://mizukazu.minibird.jp/bootstrap-stickyfooter/">Sticky footer</a>
+      </nav>
+    </footer>
 
   </body>
 </html>

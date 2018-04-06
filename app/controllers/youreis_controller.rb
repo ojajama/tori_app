@@ -1,4 +1,5 @@
 class YoureisController < ApplicationController
+  before_action :test_user
 
   def show
     @yourei = Yourei.find(params[:id])

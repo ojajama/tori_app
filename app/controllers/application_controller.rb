@@ -6,6 +6,14 @@ class ApplicationController < ActionController::Base
     words_path
   end
 
+  def test_user
+    if current_user == nil
+      @current_user = User.find(4)
+    else
+      @current_user = current_user
+    end
+  end
+
   private
   def sign_in_require
     redirect_to new_user_session_url unless user_signed_in?

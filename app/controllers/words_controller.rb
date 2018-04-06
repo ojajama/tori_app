@@ -1,8 +1,5 @@
 class WordsController < ApplicationController
   before_action :test_user
-  def test_user
-    current_user ||= User.find(4)#testuser.ID:4
-  end
 
   def index
     @words = Word.all.order(id:"DESC").page(params[:page]).per(20)
