@@ -33,7 +33,20 @@ class WordsController < ApplicationController
 
   def show
     @word = Word.find(params[:id])
+
+    @w = Word.find_by(content: @word.content)
+
+#    @w = Word.where(content: @word.content)
+#    @ow = @w.where.not(id: @word.id)
+
+#    @w = Word.where(content: @word.content).where.not(id: @word.id)
+
     @yourei = @word.youreis.build
+
+    @wy = @w.youreis.order(id:"DESC").page(params[:page]).per(20)
+
+#    @owy = @ow.youreis.order(id:"DESC").page(params[:page]).per(20)
+
     @youreis = @word.youreis.order(id:"DESC").page(params[:page]).per(20)
   end
 
@@ -41,6 +54,15 @@ class WordsController < ApplicationController
   end
 
   def create
+    # #楽観的ロック
+    # respond_to do |format|
+    #   if @word.create_with_conflict_validation(word_params)
+    #     format.html { redirect_to @word, notice: 'Word was successfully created.' }
+    #   else
+    #     format.html { render :create }
+    #   end
+    # end
+
     @word = current_user.words.build(word_params)
 
     if @word.save
@@ -50,6 +72,7 @@ class WordsController < ApplicationController
       flash[:danger] = '尻取り、やり直し。'
       redirect_to words_path
     end
+
   end
 
   def edit
@@ -78,8 +101,9 @@ class WordsController < ApplicationController
 
   private
 
-  # Strong Parameter
+  # Strong Parameter 楽観的ロック追加
   def word_params
+#    params.require(:word).permit(:content, :lock_version)
     params.require(:word).permit(:content)
   end
 

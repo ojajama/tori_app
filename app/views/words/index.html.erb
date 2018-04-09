@@ -1,12 +1,24 @@
+<script>
+//更新
+function koshin(){
+  location.reload();
+}
+</script>
+
 <% breadcrumb :words %>
 
 <h3>尻取りしましょ</h3>
 
 <% unless @new_word.nil? %>
   <h1>【<%= @new_word.content %>】</h1>
+  <form>この尻取り古くないか<input type="button"  value="確認" onclick="koshin()"></form>
 <% end %>
 
+<p>
+
 <%= form_for(@word) do |f| %>
+ <!--楽観的ロック!-->
+ <!-- <%= f.hidden_field :lock_version %> -->
   <% if @word.errors.any? %>
     <div id="error_explanation">
       <h2><%= @word.errors.count %>件のエラーがあります。</h2>
@@ -19,24 +31,51 @@
     </div>
   <% end %>
 
-  <p>
-  <%= f.label :content, '次のことばは…' %>
-  <%= f.text_field :content %>
+<div class="row">
+  <div class="col-xs-10">
 
-  <%= f.submit '尻取り！' %>
-  </p>
+  <div class="form-group">
+    <form class="form-inline">
+      <%= f.label :content, '次のことばは…' %>
+      <%= f.text_field :content %>
+      <%= f.submit '尻取り！', class: 'btn btn-primary' %>
+    </form>
+  </div>
 <% end %>
 
-<ul>
+ </div>
+</div>
+
+<table class="table table-striped">
+  <thead>
+    <tr class="input-sm">
+    <th>尻取りした人</th>
+    <th>尻取り</th>
+    <th>用例</th>
+    </tr>
+  </thead>
+  <tbody>
   <% @words.each do |word| %>
     <% if current_user.username == "名無しの権兵衛" %>
-    <li><%= word.user.username %>の【<%= word.content %>】</li>
+    <tr>
+    <td><%= word.user.username %></td>
+    <td>【<%= word.content %>】</td>
+    <td>ログインして！</td>
+    <!-- <td><%= link_to "ログインして", class: "btn btn-primary" %></td> -->
     <% else %>
-    <li><%= word.user.username %>の【<%= word.content %>】<%= link_to word.id, word %>の用例</li>
+    <td><%= word.user.username %></td>
+    <td>【<%= word.content %>】</td>
+    <td><%= link_to "➡", word, class: "btn btn-primary" %></td>
     <% end %>
+  </tr>
   <% end %>
-  <p><%= paginate @words %></p>
-</ul>
+</tbody>
+</table>
 
-<p>ユーザーID（開発用に表示）：<%= current_user.id %>
-<%= link_to current_user.username, words_path(current_user) %></p>
+<div>
+  <p><%= paginate @words, :window => 10 %><br>
+  *ラベルを日本語に。kaminariのconfigを作る。</p>
+</div>
+
+<!-- <p>ユーザーID（開発用に表示）：<%#= current_user.id %>
+<%#= link_to current_user.username, words_path(current_user) %></p> -->

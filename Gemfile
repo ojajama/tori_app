@@ -69,3 +69,7 @@ gem 'kaminari'
 gem 'rails-i18n'
 
 gem 'gretel'
+
+group :production do
+  gem 'pg', '0.21.0'
+end
