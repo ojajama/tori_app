@@ -11,7 +11,7 @@ function koshin(){
 
 <% unless @new_word.nil? %>
   <h1>【<%= @new_word.content %>】</h1>
-  <form>この尻取り古くないか<input type="button"  value="確認" onclick="koshin()"></form>
+  <form>他の人が新たに尻取りしてないか<input type="button"  value="確かめて" onclick="koshin()"></form>
 <% end %>
 
 <p>
@@ -72,9 +72,8 @@ function koshin(){
 </tbody>
 </table>
 
-<div>
+<div align=center>
   <p><%= paginate @words, :window => 10 %><br>
-  *ラベルを日本語に。kaminariのconfigを作る。</p>
 </div>
 
 <!-- <p>ユーザーID（開発用に表示）：<%#= current_user.id %>
