@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180408223414) do
+ActiveRecord::Schema.define(version: 20180409231157) do
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 20180408223414) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "lock_version", default: 0, null: false
+    t.string "category"
     t.index ["user_id"], name: "index_words_on_user_id"
   end
 
@@ -45,6 +46,7 @@ ActiveRecord::Schema.define(version: 20180408223414) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
+    t.string "category"
     t.index ["user_id"], name: "index_youreis_on_user_id"
     t.index ["word_id"], name: "index_youreis_on_word_id"
   end

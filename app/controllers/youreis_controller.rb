@@ -44,6 +44,6 @@ class YoureisController < ApplicationController
   private
 
   def yourei_params
-    params.require(:yourei).permit(:content)
+    params.require(:yourei).permit(:content, :category)
   end
 end

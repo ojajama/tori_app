@@ -1,5 +1,6 @@
 <h2>【<%= @yourei.word.content %>】</h2>
 <h1><% @yourei.id %><%= @yourei.content %></h1>
+<div class="input-sm">用例の分野は、<%= @yourei.category %></div>
 
 <div class="row">
   <div class="col-xs-10">
@@ -9,6 +10,8 @@
   <div class="form-group">
     <%= f.label :content, '書き直すなら' %>
     <%= f.text_field :content, class: 'form-control' %>
+    <%= f.label :category, '分野も' %>
+    <%= f.text_field :category, class: 'form-control' %>
     <%= f.submit 'こう直す！', class: "btn btn-primary" %>
   </div>
 <% end %>

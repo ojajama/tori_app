@@ -104,7 +104,7 @@ class WordsController < ApplicationController
   # Strong Parameter 楽観的ロック追加
   def word_params
 #    params.require(:word).permit(:content, :lock_version)
-    params.require(:word).permit(:content)
+    params.require(:word).permit(:content, :category)
   end
 
 end

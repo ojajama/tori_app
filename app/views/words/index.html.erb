@@ -32,18 +32,22 @@ function koshin(){
   <% end %>
 
 <div class="row">
-  <div class="col-xs-10">
 
-  <div class="form-group">
+  <div class="form-group col-xs-6">
     <form class="form-inline">
       <%= f.label :content, '次のことばは…' %>
-      <%= f.text_field :content %>
+      <%= f.text_field :content, class: 'form-control' %>
       <%= f.submit '尻取り！', class: 'btn btn-primary' %>
     </form>
   </div>
+
+  <div class="form-group col-xs-3 input-sm">
+      <%= f.label :category, '分野決める？' %>(空っぽでもいい)
+      <%= f.text_field :category, class: 'form-control' %>
+  </div>
+
 <% end %>
 
- </div>
 </div>
 
 <table class="table table-striped">
@@ -51,6 +55,7 @@ function koshin(){
     <tr class="input-sm">
     <th>尻取りした人</th>
     <th>尻取り</th>
+    <th>分野</th>
     <th>用例</th>
     </tr>
   </thead>
@@ -60,11 +65,13 @@ function koshin(){
     <tr>
     <td><%= word.user.username %></td>
     <td>【<%= word.content %>】</td>
+    <td class="input-sm"><%= word.category %></td>
     <td>ログインして！</td>
     <!-- <td><%= link_to "ログインして", class: "btn btn-primary" %></td> -->
     <% else %>
     <td><%= word.user.username %></td>
     <td>【<%= word.content %>】</td>
+    <td class="input-sm"><%= word.category %></td>
     <td><%= link_to "➡", word, class: "btn btn-primary" %></td>
     <% end %>
   </tr>
