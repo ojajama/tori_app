@@ -16,8 +16,7 @@ class Word < ApplicationRecord
       #     #前提として、同語の用例は同じページにまとめたい
       #   end
       end
-  validates :category, length: { maximum: 255 },
-      uniqueness: true
+  validates :category, length: { maximum: 255 }
     #重複があったら、
       #登録・ログインしていなければ、登録・ログインするか、他の尻取りにするかを選択、
       #ログインしていれば、用例を書くか、他の尻取りにするかを選択
