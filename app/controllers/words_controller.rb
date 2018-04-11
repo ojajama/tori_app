@@ -33,21 +33,13 @@ class WordsController < ApplicationController
 
   def show
     @word = Word.find(params[:id])
-
-    @w = Word.find_by(content: @word.content)
-
-#    @w = Word.where(content: @word.content)
-#    @ow = @w.where.not(id: @word.id)
-
-#    @w = Word.where(content: @word.content).where.not(id: @word.id)
-
+    @w = Word.where(content: @word.content)
+    @youreis = []
+    @w.each do |a|
+      @youreis << a.youreis.order(id: "DESC").page(params[:page]).per(20)
+    end
     @yourei = @word.youreis.build
-
-    @wy = @w.youreis.order(id:"DESC").page(params[:page]).per(20)
-
-#    @owy = @ow.youreis.order(id:"DESC").page(params[:page]).per(20)
-
-    @youreis = @word.youreis.order(id:"DESC").page(params[:page]).per(20)
+    @page = @word.youreis.order(id:"DESC").page(params[:page]).per(20)
   end
 
   def new

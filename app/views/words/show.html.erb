@@ -38,35 +38,19 @@
 
  <tbody>
    <% @youreis.each do |yourei| %>
+     <% yourei.each do |y| %>
    <tr>
-      <td><%= yourei.content %></td>
-      <td class="input-sm"><%= yourei.category %></td>
-      <td>by <%= yourei.user.username %></td>
-    <% if current_user == yourei.user %>
-      <td><%= link_to yourei.id, yourei, class: "btn btn-primary" %></td>
+      <td><%= y.content %></td>
+      <td class="input-sm"><%= y.category %></td>
+      <td>by <%= y.user.username %></td>
+    <% if current_user == y.user %>
+      <td><%= link_to y.id, y, class: "btn btn-primary" %></td>
     <% else %>
       <td>《ヨクナイネ！》ボタンをつけたい。</td>
     <% end %>
   </tr>
-  <% end %>
-
-  <!-- <tr><td><%= paginate @youreis %></td></tr> -->
-
-  <% @wy.each do |yourei| %>
-  <tr>
-      <td><%= yourei.content %></td>
-      <td class="input-sm"><%= yourei.category %></td>
-      <td>by <%= yourei.user.username %></td>
-    <% if current_user == yourei.user %>
-      <td><%= link_to yourei.id, yourei, class: "btn btn-primary" %></td>
-    <% else %>
-      <td>《ヨクナイネ！》ボタンをつけたい。</td>
     <% end %>
-  </tr>
   <% end %>
-
-  <!-- <tr><td><%= paginate @wy %></td></tr> -->
-
  </tbody>
 
 </table>
