@@ -5,9 +5,6 @@ class WordsController < ApplicationController
     @words = Word.all.order(id:"DESC").page(params[:page]).per(20)
     @new_word = Word.last
 
-#    @new_word_right = @new_word.content[-1]
-#    @new_word_right2 = @new_word.content[-2]
-
     if
       @new_word.content[-1] =~ /[んンゃゅょっャュョッぁぃぅぇぉァィゥェォー]/ &&
       @new_word.content[-2] =~ /[んンゃゅょっャュョッぁぃぅぇぉァィゥェォー]/ &&
@@ -29,6 +26,7 @@ class WordsController < ApplicationController
     else
       @word = Word.new(content: "ムズっ！")
     end
+
   end
 
   def show
@@ -39,7 +37,7 @@ class WordsController < ApplicationController
       @youreis << a.youreis.order(id: "DESC").page(params[:page]).per(20)
     end
     @yourei = @word.youreis.build
-    @page = @word.youreis.order(id:"DESC").page(params[:page]).per(20)
+    @page = @word.youreis.order(id: "DESC").page(params[:page]).per(20)
   end
 
   def new

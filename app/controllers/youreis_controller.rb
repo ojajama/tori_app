@@ -39,7 +39,13 @@ class YoureisController < ApplicationController
 
     flash[:success] = '用例、削除。'
     redirect_to words_url
-   end
+  end
+
+  def kugereis#ここでいいのかuser_controllerとしたら、どれ。
+    @user = User.find(params[:id])
+    @kugereis = @user.kugereis.page(params[:page])
+#    counts(@user)
+  end
 
   private
 
