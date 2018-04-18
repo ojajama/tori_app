@@ -64,35 +64,31 @@ function koshin(){
   <tbody>
   <% @words.each do |word| %>
 
-    <% if current_user.username == "名無しの権兵衛" %>
-     <tr>
-     <td><%= word.user.username %></td>
-     <td>【<%= word.content %>】</td>
-     <td class="input-sm"><%= word.category %></td>
-     <td></td>
-     <td>ログインして！</td>
-    <% else %>
-     <td><%= word.user.username %></td>
-     <td>【<%= word.content %>】</td>
-     <td class="input-sm"><%= word.category %></td>
-     <%
-       youreis = []
-       w = Word.where(content: word.content)
-       w.each do |a|
-        # youreis << a.youreis.order(id: "DESC").page(params[:page]).per(20)
-        youreis << a.youreis.order(id: "DESC")
-       end
-     %>
-     <% if youreis != nil %>
-     <% count = 0 %>
-     <% youreis.each do |c| %>
-      <% count += c.count %>
-     <% end %>
-     <td><%= count %></td>
-     <td><%= link_to "➡", word, class: "btn btn-primary" %></td>
+    <tr>
+    <td><%= word.user.username %></td>
+    <td>【<%= word.content %>】</td>
+    <td class="input-sm"><%= word.category %></td>
+    <%
+      youreis = []
+      w = Word.where(content: word.content)
+      w.each do |a|
+       # youreis << a.youreis.order(id: "DESC").page(params[:page]).per(20)
+       youreis << a.youreis.order(id: "DESC")
+      end
+    %>
+    <% if youreis != nil %>
+    <% count = 0 %>
+    <% youreis.each do |c| %>
+     <% count += c.count %>
     <% end %>
-   </tr>
+    <td><%= count %></td>
+    <% if current_user.username == "名無しの権兵衛" %>
+    <td class="input-sm">ログインして！</td>
+   <% else %>
+    <td><%= link_to "➡", word, class: "btn btn-primary" %></td>
    <% end %>
+  </tr>
+  <% end %>
 
   <% end %>
   </tbody>
