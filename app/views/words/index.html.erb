@@ -11,7 +11,7 @@ function koshin(){
 
 <% unless @new_word.nil? %>
   <h1>【<%= @new_word.content %>】</h1>
-  <form>他の人が新たに尻取りしてないか<input type="button"  value="確かめて" onclick="koshin()"></form>
+  <form>念のため、最新の尻取りに<input type="button" value="更新！" onclick="koshin()"></form>
 <% end %>
 
 <p>
@@ -21,7 +21,7 @@ function koshin(){
  <!-- <%= f.hidden_field :lock_version %> -->
   <% if @word.errors.any? %>
     <div id="error_explanation">
-      <h2><%= @word.errors.count %>件のエラーがあります。</h2>
+      <h5>エラーは次の<%= @word.errors.count %>つ。</h5>
 
       <ul>
       <% @word.errors.full_messages.each do |msg| %>
@@ -83,7 +83,7 @@ function koshin(){
     <% end %>
     <td><%= count %></td>
     <% if current_user.username == "名無しの権兵衛" %>
-    <td class="input-sm">ログインして！</td>
+    <td class="input-sm">ログインを...</td>
    <% else %>
     <td><%= link_to "➡", word, class: "btn btn-primary" %></td>
    <% end %>

@@ -13,7 +13,7 @@ class YoureisController < ApplicationController
       flash[:success] = '用例、追加。'
     else
       @youreis = @word.youreis.order('created_at DESC').page(params[:page])
-      flash[:danger] = '用例、書き込んで！'
+      flash[:danger] = '用例、書いて...'
     end
     redirect_to @word
   end
@@ -39,12 +39,6 @@ class YoureisController < ApplicationController
 
     flash[:success] = '用例、削除。'
     redirect_to words_url
-  end
-
-  def kugereis#ここでいいのかuser_controllerとしたら、どれ。
-    @user = User.find(params[:id])
-    @kugereis = @user.kugereis.page(params[:page])
-#    counts(@user)
   end
 
   private

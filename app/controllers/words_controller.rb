@@ -1,8 +1,9 @@
 class WordsController < ApplicationController
   before_action :test_user
+  before_action :get_words
 
   def index
-    @words = Word.all.order(id:"DESC").page(params[:page]).per(20)
+#    @words = Word.all.order(id:"DESC").page(params[:page]).per(20)
     @new_word = Word.last
 
     if
@@ -60,7 +61,8 @@ class WordsController < ApplicationController
       redirect_to words_path
     else
       flash[:danger] = '尻取り、やり直し。'
-      redirect_to words_path
+#      redirect_to words_path
+       render :index
     end
 
   end
@@ -87,7 +89,11 @@ class WordsController < ApplicationController
 
     flash[:success] = '尻取り、削除。'
     redirect_to words_url
-   end
+  end
+
+  def get_words
+     @words = Word.all.order(id:"DESC").page(params[:page]).per(20)
+  end
 
   private
 
