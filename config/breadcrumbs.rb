@@ -8,7 +8,7 @@ end
 
 crumb :youreis do |yourei|
    link "用例集", yourei_path
-   #リンク先が分からない
+   #リンク先の書き方が分からない
    parent :words
 end
 

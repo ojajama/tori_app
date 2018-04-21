@@ -1,7 +1,7 @@
 <% breadcrumb :youreis, @word %>
 
 <h1><% @word.id %>【<%= @word.content %>】</h1>
-ことばの分野は、<div class="input-sm info"><%= @word.category %></div>
+尻取りのお題は...<div class="input-sm info"><%= @word.category %></div>
 <!-- <p>
 <%= link_to '尻取りを編集', edit_word_path(@word), class: "btn btn-primary" %>
 <%= link_to '尻取りを削除', @word, method: :delete, data: { confirm: '用例も消えちゃうよ' }, class: "btn btn-danger" %>
@@ -10,7 +10,7 @@
   <div class="form-group">
     <%= form_for(@yourei) do |f| %>
     <div class="input-sm col-xs-4">
-        <%= f.label :category, '用例の分野は？' %>(空っぽでもいい)
+        <%= f.label :category, '用例のお題は？' %>(空っぽでもいい)
         <%= f.text_field :category, class: 'form-control' %>
    </div>
    <div class="col-xs-8">
@@ -30,7 +30,7 @@
  <thead>
    <tr class="input-sm info">
       <th>用例</th>
-      <th>用例の分野</th>
+      <th>用例のお題</th>
       <th>作った人</th>
       <th>書き換える?</th>
    </tr>

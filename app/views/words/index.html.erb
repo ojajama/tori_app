@@ -42,7 +42,7 @@ function koshin(){
   </div>
 
   <div class="form-group col-xs-3 input-sm">
-      <%= f.label :category, '分野決める？' %>(空っぽでもいい)
+      <%= f.label :category, 'お題決める？' %>(空っぽでもいい)
       <%= f.text_field :category, class: 'form-control' %>
   </div>
 
@@ -60,9 +60,13 @@ function koshin(){
     <tr class="input-sm">
     <th>尻取りした人</th>
     <th>尻取り</th>
-    <th>分野</th>
+    <th>お題</th>
     <th>用例数</th>
-    <th>用例</th>
+    <% if current_user.username == "名無しの権兵衛" %>
+    <th class="input-sm">用例見るなら</td>
+   <% else %>
+    <th>用例書いて...</td>
+   <% end %>
     </tr>
   </thead>
 
