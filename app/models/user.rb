@@ -12,6 +12,8 @@ class User < ApplicationRecord
                   #uniqueness: { case_sensitive: false }
   #has_secure_password
 
+  validates :username, presence: true, length: { maximum: 255 },
+                       uniqueness: true
   has_many :words
   has_many :youreis
 
