@@ -2,7 +2,6 @@ ja:
  activerecord:
   models:
     user: ユーザー
-    uniqueness: もうある
   attributes:
     user:
       username: 名前

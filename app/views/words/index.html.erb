@@ -50,6 +50,11 @@ function koshin(){
 
 </div>
 
+<!-- <div align=center class="input-sm"> -->
+<div align=center><%= paginate @words, :window => 10 %><br></div>
+
+<p>
+
 <table class="table table-striped">
   <thead>
     <tr class="input-sm">
@@ -94,9 +99,8 @@ function koshin(){
   </tbody>
 </table>
 
-<div align=center>
-  <p><%= paginate @words, :window => 10 %><br>
-</div>
+<!-- <div align=center class="input-sm"> -->
+<div align=center><%= paginate @words, :window => 10 %><br></div>
 
 <!-- <p>ユーザーID（開発用に表示）：<%#= current_user.id %>
 <%#= link_to current_user.username, words_path(current_user) %></p> -->
