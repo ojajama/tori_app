@@ -4,6 +4,11 @@
   <%= devise_error_messages! %>
 
   <div class="field">
+    <%= f.label :名前 %><br />
+    <%= f.text_field :username, autofocus: true %>
+  </div>
+
+  <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
@@ -31,14 +36,21 @@
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
 
+  <div class="field">
+    <%= f.label :日本語熱 %><br />
+    <%= f.select :ondo, {"高熱" => "高熱", "微熱" => "微熱", "平熱" => "平熱", "上がったり下がったり" => "上がったり下がったり"}, {}, {:class => "form-control"} %>
+  </div>
+
+<p>
+
   <div class="actions">
-    <%= f.submit "更新" %>
+    <%= f.submit "更新", class: "btn btn-info" %>
   </div>
 
 <% end %>
 
-<h3>登録をやめる</h3>
+<!-- <h3>登録をやめる</h3>
 
-<p>やめとく？ <%= button_to "やめる", registration_path(resource_name), data: { confirm: "ほんとにやめる？" }, method: :delete %></p>
+<p>やめとく？ <%= button_to "やめる", registration_path(resource_name), data: { confirm: "ほんとにやめる？" }, method: :delete %></p> -->
 
 <%= link_to "戻る", :back %>
