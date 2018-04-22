@@ -14,8 +14,7 @@ class User < ApplicationRecord
 
   validates :username, presence: true, length: { maximum: 255 },
                        uniqueness: true
-  validates :ondo, length: { maximum: 50 }
-
+  
   has_many :words
   has_many :youreis
 
