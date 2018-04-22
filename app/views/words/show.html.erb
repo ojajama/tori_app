@@ -1,7 +1,10 @@
 <% breadcrumb :youreis, @word %>
 
 <h1><% @word.id %>【<%= @word.content %>】</h1>
+<div class="input-sm">
+尻取りしたのは <%= @word.user.username %>&nbsp;&nbsp;&nbsp;
 尻取りのお題は...<div class="input-sm info"><%= @word.category %></div>
+</div>
 <!-- <p>
 <%= link_to '尻取りを編集', edit_word_path(@word), class: "btn btn-primary" %>
 <%= link_to '尻取りを削除', @word, method: :delete, data: { confirm: '用例も消えちゃうよ' }, class: "btn btn-danger" %>

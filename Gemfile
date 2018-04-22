@@ -70,3 +70,5 @@ gem 'kaminari'
 gem 'rails-i18n'
 
 gem 'gretel'
+
+gem 'ransack'   #検索

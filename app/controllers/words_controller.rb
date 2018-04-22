@@ -3,6 +3,8 @@ class WordsController < ApplicationController
   before_action :get_words
 
   def index
+    @search = Word.search(params[:q])
+    @search_words = @search.result
 #    @words = Word.all.order(id:"DESC").page(params[:page]).per(20)
     @new_word = Word.last
 

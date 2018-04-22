@@ -50,6 +50,20 @@ function koshin(){
 
 </div>
 
+<%= search_form_for @search do |f| %>
+  <%= f.label :content_eq, 'もうあるかな' %>
+  <%= f.text_field :content_eq %>
+  <%= f.submit '探す' %>
+<% end %>
+<% @search_words.each do |sw| %>
+   <% unless sw.nil? %>
+   あった！【<%= link_to sw.content, sw %>】
+   <!-- <% else %>
+   この尻取りはまだない -->
+   <% end %>
+
+<% end %>
+
 <!-- <div align=center class="input-sm"> -->
 <div align=center><%= paginate @words, :window => 10 %><br></div>
 
