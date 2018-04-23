@@ -5,6 +5,8 @@ class WordsController < ApplicationController
   def index
     @search = Word.search(params[:q])
     @search_words = @search.result
+    @q_word = params[:q][:content_eq]
+
 #    @words = Word.all.order(id:"DESC").page(params[:page]).per(20)
     @new_word = Word.last
 
