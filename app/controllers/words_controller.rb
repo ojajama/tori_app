@@ -1,12 +1,19 @@
 class WordsController < ApplicationController
   before_action :test_user
   before_action :get_words
+  before_action :search
 
-  def index
-    @search = Word.search(params[:q])
+def search
+  @search = Word.search(params[:q])
+
+  if params[:q].nil? == false
     @search_words = @search.result
-    @q_word = params[:q][:content_eq]
+  else
+    @search_words = []
+  end
+end
 
+def index
 #    @words = Word.all.order(id:"DESC").page(params[:page]).per(20)
     @new_word = Word.last
 

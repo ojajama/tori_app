@@ -57,9 +57,9 @@ function koshin(){
   <%= f.submit '調べる' %>
 <% end %>
 <% @search_words.each do |sw| %>
- <% if @q_word != "" %>
+ <!-- <% if @q_word != "" %> -->
    あった！【<%= link_to sw.content, sw %>】
- <% end %>
+ <!-- <% end %> -->
 <% end %>
 <% if @search_words == [] %>
    まだない</p>
