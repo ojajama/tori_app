@@ -20,12 +20,6 @@ class Users::SessionsController < Devise::SessionsController
     super
   end
 
-  def kugereis#ここでいいのかuser_controllerとしたら、どれ。
-    @user = User.find(params[:id])
-    @kugereis = @user.kugereis.page(params[:page])
-#    counts(@user)
-  end
-
 # protected
 
   # If you have extra params to permit, append them to the sanitizer.
