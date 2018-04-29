@@ -1,17 +1,18 @@
 class WordsController < ApplicationController
   before_action :test_user
   before_action :get_words
-  # before_action :search いったんやめる2018/04/25
+  before_action :search
 
-# def search いったんやめる2018/04/25
-#   @search = Word.search(params[:q])
-#
-#   if params[:q].nil? == false
-#     @search_words = @search.result
-#   else
-#     @search_words = []
-#   end
-# end
+def search
+  @search = Word.search(params[:q])
+  if params[:q].nil? == false
+    if params[:q][:content_eq] != ""
+      @search_words = @search.result
+    else
+      @search_words = []
+    end
+  end
+end
 
 def index
 #    @words = Word.all.order(id:"DESC").page(params[:page]).per(20)

@@ -7,8 +7,9 @@ crumb :words do
 end
 
 crumb :youreis do |yourei|
-   link "用例集", yourei_path
-   #リンク先の書き方が分からない
+   link "用例集", words_path
+   #link "用例集", word_path
+   #この一つ前に戻りたいが、リンク先の書き方が分からない
    parent :words
 end
 

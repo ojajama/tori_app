@@ -1,4 +1,4 @@
-<h2>名を残す</h2>
+<h4>名を残す</h4>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
@@ -43,8 +43,11 @@
 <p>
 
   <div class="actions">
-    <%= f.submit "登録", class: "btn btn-info" %>
+    <%= f.submit "登録", class: "btn btn-primary" %>
   </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+<p>
+  <div class="field">
+    あるいは、<%= render "devise/shared/links" %>
+  </div>
