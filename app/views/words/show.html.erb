@@ -19,11 +19,11 @@
   <div class="form-group">
     <%= form_for(@yourei) do |f| %>
     <div class="input-sm col-xs-3">
-        <%= f.label :category, '用例のお題は？' %>(空っぽでもいい)
+        <%= f.label :category, '例文のお題は？' %>(空っぽでもいい)
         <%= f.text_field :category, class: 'form-control' %>
     </div>
     <div class="col-xs-9">
-      <%= f.label :content, '用例は？' %>
+      <%= f.label :content, '例文は？' %>
       <%= f.text_field :content, autofocus: true, class: 'form-control' %>
       <%= hidden_field_tag :word_id, @word.id %>
       <%= f.submit 'こう使う！', class: "btn btn-primary" %>
@@ -39,7 +39,7 @@
 
  <thead>
    <tr class="input-sm info">
-      <th>用例</th>
+      <th>例文</th>
       <th>お題</th>
       <th>作った人</th>
       <th>これでいいかな</th>
