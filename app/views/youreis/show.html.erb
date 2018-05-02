@@ -6,7 +6,7 @@
 <h1><% @yourei.id %><%= @yourei.content %></h1>
 
 <p>
-  <%= link_to '尻取り一覧に戻る', words_path, class: "btn btn-default" %>
-  <%= link_to '例文を編集', edit_yourei_path(@yourei), class: "btn btn-primary" %>
-  <%= link_to '例文を削除', @yourei, method: :delete, data: { confirm: 'ここはひとつ、斬新なやつを。' }, class: "btn btn-danger" %>
+  <%= link_to '尻取り一覧', words_path, class: "btn btn-link" %>
+  <%= link_to '例文をなおす', edit_yourei_path(@yourei), class: "btn btn-link" %>
+  <%= link_to '例文をやめる', @yourei, method: :delete, data: { confirm: 'ここはひとつ、斬新なやつを。' }, class: "btn btn-link" %>
 </p>

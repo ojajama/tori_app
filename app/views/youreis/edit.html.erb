@@ -8,15 +8,15 @@
 <%= form_for(@yourei) do |f| %>
 
   <div class="form-group">
-    <%= f.label :content, '書き直すなら' %>
+    <%= f.label :content, 'なおすなら' %>
     <%= f.text_field :content, class: 'form-control' %>
     <%= f.label :category, 'お題も' %>
     <%= f.text_field :category, class: 'form-control' %>
-    <%= f.submit 'こう直す！', class: "btn btn-primary" %>
+    <%= f.submit 'こうなおす！', class: "btn btn-link" %>
   </div>
 <% end %>
 
   </div>
 </div>
 
-<div><%= link_to '尻取り一覧に戻る', words_path, class: "btn btn-default" %></div>
+<div><%= link_to '尻取り一覧', words_path, class: "btn btn-link" %></div>

@@ -11,7 +11,7 @@ function koshin(){
 
 <% unless @new_word.nil? %>
   <h1>【<%= @new_word.content %>】</h1>
-  <form>念のため、<input class="btn btn-default" type="button" value="最新の尻取りに！" onclick="koshin()"></form>
+  <form>念のため、<input class="btn btn-link" type="button" value="最新の尻取りに！" onclick="koshin()"></form>
 <% end %>
 
 <p>
@@ -33,16 +33,23 @@ function koshin(){
 
 <div class="row">
 
-  <div class="form-group col-xs-6">
-    <form class="form-inline">
+  <div class="form-group col-xs-5">
+    <!-- <form class="form-inline"> -->
       <%= f.label :content, '次は…' %>
       <%= f.text_field :content, autofocus: true, class: 'form-control' %>
-      <%= f.submit '尻取り！', class: 'btn btn-primary' %>
-    </form>
+      <%= f.submit '尻取り！', class: 'btn btn-link' %>
+    <!-- </form> -->
   </div>
 
   <div class="form-group col-xs-3 input-sm">
-      <%= f.label :category, 'お題決める？' %>(空っぽでもいい)
+  <% unless current_user.username == "名無しの権兵衛" %>
+    <%= link_to 'なおす', edit_word_path(@new_word), class: "btn btn-link" %><br>
+    <%= link_to 'やめる', @new_word, method: :delete, data: { confirm: '例文も消えちゃうよ' }, class: "btn btn-link" %>
+  <% end %>
+  </div>
+
+  <div class="form-group col-xs-3 input-sm">
+      <%= f.label :category, 'お題を決める' %>(空っぽ可)
       <%= f.text_field :category, class: 'form-control' %>
   </div>
 
@@ -52,7 +59,7 @@ function koshin(){
 
 <div class="input-sm">
 <%= search_form_for @search do |f| %>
-  <%= f.label :content_eq, 'この尻取り、もうあるかな' %>
+  <%= f.label :content_eq, 'もう使われた？' %>
   <%= f.text_field :content_eq %>
   <%= f.submit 'さがす', class: "btn btn-default" %>
   <% if @search_words.nil? == false %>
