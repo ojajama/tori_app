@@ -49,6 +49,10 @@
               <li class="navbar-text"><%= link_to '名を残す', new_user_registration_path %></li>
               <li class="navbar-text"><%= link_to 'ログイン', new_user_session_path %></li>
 
+              <% elsif current_user.username == "ojajama" %>
+              <li class="navbar-text"><%= link_to '自転車操業', youreis_path %></li>
+              <li class="navbar-text"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+
               <% else %>
 
               <li class="navbar-text"><%= link_to '名を変える', edit_user_registration_path %></li>

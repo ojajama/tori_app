@@ -1,6 +1,11 @@
 class YoureisController < ApplicationController
   before_action :test_user
 
+  def index
+    @Youreis = Yourei.all
+    @words = Word.all.order(id:"DESC").page(params[:page]).per(50)
+  end
+
   def show
     @yourei = Yourei.find(params[:id])
   end
