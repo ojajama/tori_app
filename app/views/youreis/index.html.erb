@@ -1,0 +1,49 @@
+<% if current_user.username == "ojajama" %>
+
+<div align=center><%= paginate @words, :window => 10 %><br></div>
+
+<table class="table table-striped">
+
+  <thead>
+    <tr class="input-sm">
+    <th>尻取りした人</th>
+    <th>尻取り</th>
+    <th>お題</th>
+    <th>例文数</th>
+    <th>例文</td>
+    </tr>
+  </thead>
+
+  <tbody>
+
+  <% @words.each do |word| %>
+
+    <tr>
+    <td><%= word.user.username %></td>
+    <td>【<%= word.content %>】</td>
+    <td class="input-sm"><%= word.category %></td>
+    <%
+      youreis = []
+      w = Word.where(content: word.content)
+      w.each do |a|
+       # youreis << a.youreis.order(id: "DESC").page(params[:page]).per(20)
+       youreis << a.youreis.order(id: "DESC")
+      end
+    %>
+    <% if youreis != nil %>
+    <% count = 0 %>
+    <% youreis.each do |c| %>
+     <% count += c.count %>
+    <% end %>
+    <td><%= count %></td>
+    <td><%= link_to "➡", word, class: "btn btn-primary" %></td>
+  </tr>
+  <% end %>
+
+  <% end %>
+
+  </tbody>
+
+</table>
+
+<% end %>
