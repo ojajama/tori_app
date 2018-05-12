@@ -2,14 +2,6 @@ class WordsController < ApplicationController
   before_action :test_user
   before_action :get_words
   before_action :search
-  before_action :q_search
-
-  def q_search
-    # 検索フォームの入力内容で検索する
-    @q = User.search(username: params[:q])
-    # 重複を排除
-    # @users = @q.result(distinct: true)
-  end
 
   def search
    @search = Word.search(params[:q])
@@ -47,6 +39,11 @@ class WordsController < ApplicationController
     else
       @word = Word.new(content: "ムズっ！")
     end
+
+    @q = current_user
+      if params["commit"] == "検索"
+        @words = @q.words.page(params[:page]).per(20)
+      end
 
   end
 

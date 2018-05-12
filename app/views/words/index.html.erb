@@ -73,15 +73,8 @@ function koshin(){
 <% end %>
 </div>
 
-<%= search_form_for(@q, url: word_search_path, method: :get) do |f| %>
-  <div class="control-group">
-    <%= f.label :username_eq, '名前は？' %>
-    <div class="controls">
-      <%= f.text_field :username_eq %>
-    </div>
-  </div>
-
-  <%= f.submit 'さがす' %>
+<%= form_for(@q, url: words_path, method: :get) do |f| %>
+  <%= f.submit '自分の尻取り一覧' %>
 <% end %>
 
 <p>
