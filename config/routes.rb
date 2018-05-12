@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   get 'youreis/destroy'
 
+  get '/words/q_search', to: 'words#q_search', as: 'word_search'
+
   devise_for :users, :controllers => {
     :registrations => 'users/registrations',
     :sessions => 'users/sessions',
