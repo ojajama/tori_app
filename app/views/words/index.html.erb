@@ -15,7 +15,15 @@ function koshin(){
 <% end %>
 
 <p>
+  <div class="input-sm">
+  <% unless current_user.username == "名無しの権兵衛" %>
+    <%= form_for(@q, url: words_path, method: :get) do |f| %>
+      <%= f.submit '自分の尻取り一覧', class: "btn btn-link" %>
+    <% end %>
+  <% end %>
+  </div>
 
+<p>
 <%= form_for(@word) do |f| %>
  <!--楽観的ロック!-->
  <!-- <%= f.hidden_field :lock_version %> -->
@@ -59,9 +67,9 @@ function koshin(){
 
 <div class="input-sm">
 <%= search_form_for @search do |f| %>
-  <%= f.label :content_eq, 'もう使われた？' %>
+  <%= f.label :content_eq, 'もう使われてる？' %>
   <%= f.text_field :content_eq %>
-  <%= f.submit 'さがす', class: "btn btn-default" %>
+  <%= f.submit 'さがす', class: "btn btn-link" %>
   <% if @search_words.nil? == false %>
    <% @search_words.each do |sw| %>
      ⇒あった！【<%= link_to sw.content, sw %>】
@@ -73,9 +81,6 @@ function koshin(){
 <% end %>
 </div>
 
-<%= form_for(@q, url: words_path, method: :get) do |f| %>
-  <%= f.submit '自分の尻取り一覧' %>
-<% end %>
 
 <p>
 <!-- <div align=center class="input-sm"> -->

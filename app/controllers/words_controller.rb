@@ -16,6 +16,11 @@ class WordsController < ApplicationController
 
   def index
 #    @words = Word.all.order(id:"DESC").page(params[:page]).per(20)
+    @q = current_user
+      if params["commit"] == "自分の尻取り一覧"
+        @words = @q.words.order(id: "DESC").page(params[:page]).per(10000)
+      end
+
     @new_word = Word.last
 
     if
@@ -39,11 +44,6 @@ class WordsController < ApplicationController
     else
       @word = Word.new(content: "ムズっ！")
     end
-
-    @q = current_user
-      if params["commit"] == "検索"
-        @words = @q.words.page(params[:page]).per(20)
-      end
 
   end
 
