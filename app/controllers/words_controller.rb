@@ -78,8 +78,8 @@ class WordsController < ApplicationController
       redirect_to words_path
     else
       flash[:danger] = '尻取り、やり直し。'
-#      redirect_to words_path
-       render :index
+      redirect_to words_path
+      #render :index バリデーションエラー画面に飛ぶので、上記に。
     end
 
   end
