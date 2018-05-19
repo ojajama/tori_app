@@ -21,9 +21,9 @@
   <div class="form-group">
     <%= form_for(@yourei) do |f| %>
     <div class="input-sm col-xs-3">
-        <%= f.label :category, '例文のお題' %>(空っぽ可)
+        <%= f.label :category, '例文のお題' %>
         <!-- <%= f.text_field :category, class: 'form-control' %> -->
-        <%= f.select :category, [["", ""], ["フィクション","フィクション"], ["生き物","生き物"], ["食い物","食い物"], ["飲み物","飲み物"], ["乗り物","乗り物"], ["形容詞","形容詞"], ["動詞","動詞"]], class: 'form-control' %>
+        <%= f.select :category, [["", ""], ["作り事","作り事"], ["生き物","生き物"], ["食い物","食い物"], ["飲み物","飲み物"], ["乗り物","乗り物"], ["形容詞","形容詞"], ["動詞","動詞"]], class: 'form-control' %>
     </div>
     <div class="col-xs-9">
       <%= f.label :content, '例文' %>
