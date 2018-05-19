@@ -58,7 +58,7 @@ function koshin(){
 
   <div class="form-group col-xs-3 input-sm">
       <%= f.label :category, 'お題を決める' %>(空っぽ可)
-      <%= f.text_field :category, class: 'form-control' %>
+      <%= f.select :category, [["", ""], ["フィクション","フィクション"], ["生き物","生き物"], ["食い物","食い物"], ["飲み物","飲み物"], ["乗り物","乗り物"], ["形容詞","形容詞"], ["動詞","動詞"]], class: 'form-control' %>
   </div>
 
 <% end %>
@@ -67,7 +67,7 @@ function koshin(){
 
 <div class="input-sm">
 <%= search_form_for @search do |f| %>
-  <%= f.label :content_eq, 'もう使われてる？' %>
+  <%= f.label :content_eq, 'もうあるか' %>
   <%= f.text_field :content_eq %>
   <%= f.submit 'さがす', class: "btn btn-link" %>
   <% if @search_words.nil? == false %>
