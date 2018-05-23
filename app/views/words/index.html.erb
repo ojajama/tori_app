@@ -51,7 +51,8 @@ function koshin(){
 
   <div class="form-group col-xs-3 input-sm">
   <% unless current_user.username == "名無しの権兵衛" %>
-    <%= link_to 'なおす', edit_word_path(@new_word), class: "btn btn-link" %><br>
+  <%# これはコントローラーが呼び出されないのと、後ここでエディットの画面のボタンが表示されるのはおかしいので、コメントアウトにしています。 %>
+  <%# link_to 'なおす', edit_word_path(@new_word), class: "btn btn-link" %><br>
     <%= link_to 'やめる', @new_word, method: :delete, data: { confirm: '例文も消えちゃうよ' }, class: "btn btn-link" %>
   <% end %>
   </div>

@@ -16,10 +16,11 @@ class WordsController < ApplicationController
 
   def index
 #    @words = Word.all.order(id:"DESC").page(params[:page]).per(20)
-    @q = current_user
-      if params["commit"] == "自分の尻取り一覧"
-        @words = @q.words.order(id: "DESC").page(params[:page]).per(10000)
-      end
+
+    # @q = current_user
+    #   if params["commit"] == "自分の尻取り一覧"
+    #     @words = @q.words.order(id: "DESC").page(params[:page]).per(10000)
+    #   end
 
     @new_word = Word.last
 
@@ -73,13 +74,15 @@ class WordsController < ApplicationController
 
     @word = current_user.words.build(word_params)
 
+    session[:category] = params[:word][:category]
+
     if @word.save
       flash[:success] = '尻取り、続けよう！'
       redirect_to words_path
     else
       flash[:danger] = '尻取り、やり直し。'
-      redirect_to words_path
-      #render :index バリデーションエラー画面に飛ぶので、上記に。
+      # redirect_to words_path
+      render :index #バリデーションエラー画面に飛ぶので、上記に。と思ったが、逆か。
     end
 
   end
@@ -109,7 +112,17 @@ class WordsController < ApplicationController
   end
 
   def get_words
-     @words = Word.all.order(id:"DESC").page(params[:page]).per(20)
+     # @words = Word.all.order(id:"DESC").page(params[:page]).per(20)
+     @q = current_user
+       if params["commit"] == "自分の尻取り一覧"
+        session[:flag] = 1
+        @words = @q.words.order(id: "DESC").page(params[:page]).per(20)
+      else
+        @words = Word.all.order(id:"DESC").page(params[:page]).per(20)
+      end
+      if session[:flag] == 1
+        @words = @q.words.order(id: "DESC").page(params[:page]).per(20)
+      end
   end
 
   private
