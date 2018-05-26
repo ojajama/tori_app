@@ -18,7 +18,8 @@ function koshin(){
   <div class="input-sm">
   <% unless current_user.username == "名無しの権兵衛" %>
     <%= form_for(@q, url: words_path, method: :get) do |f| %>
-      <%= f.submit '自分の尻取り一覧', class: "btn btn-link" %>
+      <%= f.submit '自分の尻取り一覧', class: "btn btn-list" %>
+      <%= link_to "全尻取り一覧", words_path, type: "button", class: "btn btn-list" %>
     <% end %>
   <% end %>
   </div>
@@ -59,7 +60,7 @@ function koshin(){
 
   <div class="form-group col-xs-3 input-sm">
       <%= f.label :category, 'お題を決める' %>
-      <%= f.select :category, [["", ""], ["作り事","作り事"], ["生き物","生き物"], ["食い物","食い物"], ["飲み物","飲み物"], ["乗り物","乗り物"], ["形容詞","形容詞"], ["動詞","動詞"]], class: 'form-control' %>
+      <%= f.select :category, [["", ""], ["作り事","作り事"], ["生き物","生き物"], ["食い物","食い物"], ["飲み物","飲み物"], ["乗り物","乗り物"], ["形容詞","形容詞"], ["動詞","動詞"]], selected: session[:category], class: 'form-control' %>
   </div>
 
 <% end %>

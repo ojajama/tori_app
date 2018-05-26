@@ -17,11 +17,6 @@ class WordsController < ApplicationController
   def index
 #    @words = Word.all.order(id:"DESC").page(params[:page]).per(20)
 
-    # @q = current_user
-    #   if params["commit"] == "自分の尻取り一覧"
-    #     @words = @q.words.order(id: "DESC").page(params[:page]).per(10000)
-    #   end
-
     @new_word = Word.last
 
     if
@@ -118,10 +113,11 @@ class WordsController < ApplicationController
         session[:flag] = 1
         @words = @q.words.order(id: "DESC").page(params[:page]).per(20)
       else
+        session[:flag] = 0
         @words = Word.all.order(id:"DESC").page(params[:page]).per(20)
       end
       if session[:flag] == 1
-        @words = @q.words.order(id: "DESC").page(params[:page]).per(20)
+        @words = @q.words.order(id: "DESC").page(params[:page]).per(200)
       end
   end
 
