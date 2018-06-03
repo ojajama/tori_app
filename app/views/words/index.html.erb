@@ -13,7 +13,7 @@ function koshin(){
 
 <% unless @new_word.nil? %>
   <h1>【<%= @new_word.content %>】</h1>
-  <form><%= image_tag 'yubiMizu.png', :size => '30x20' %><input class="btn btn-link" type="button" value="最新の尻取り" onclick="koshin()">かどうか確かめる</form>
+  <form><%= image_tag 'yubiMizu.png', :size => '30x20' %><input class="btn btn-link" type="button" value="最新の尻取り" onclick="koshin()">かな？</form>
 <% end %>
 
 </div>
@@ -45,15 +45,17 @@ function koshin(){
   <% end %>
 
 <hr>
-<hr>
-<hr>
 
-  <div class="row">
+<div>
+  <div class="form-group input-sm">
+      <%= image_tag 'yubiMizu.png', :size => '15x10' %>&nbsp;&nbsp;<%= f.label :category, 'お題は' %>
+      <%= f.collection_select :category, Category.all, :content,:content, include_blank: true, selected: session[:category]%>
+  </div>
 
-  <div class="form-group col-xs-9">
+  <div class="form-group">
     <!-- <form class="form-inline"> -->
       <%= f.label :content, 'ひらがなかカタカナで！', class: 'input-sm' %>
-      <%= f.text_field :content, autofocus: true, class: 'form-control, input-lg' %><br>
+      <%= f.text_field :content, autofocus: true, class: 'form-control, input-lg' %>&nbsp;
       <%= image_tag 'yubiMizu.png', :size => '30x20' %><%= f.submit '尻取り！', class: 'btn btn-link' %>
     <!-- </form> -->
   </div>
@@ -66,18 +68,13 @@ function koshin(){
   <% end %>
   </div> -->
 
-  <div class="form-group col-xs-3 input-sm">
-      <%= image_tag 'yubiMizu.png', :size => '15x10' %>&nbsp;&nbsp;<%= f.label :category, 'お題は' %>
-      <%= f.collection_select :category, Category.all, :content,:content, include_blank: true, selected: session[:category]%>
-  </div>
-
 <% end %>
 
 </div>
 
 <div class="input-sm" align="center">
 <%= search_form_for @search do |f| %>
-  <%= f.label :content_eq, 'もうあるかな' %>
+  <%= f.label :content_eq, 'この尻取り、もうあるかな' %>
   &nbsp;&nbsp;<%= f.text_field :content_eq %>
   &nbsp;&nbsp;<%= image_tag 'yubiMizu.png', :size => '15x10' %><%= f.submit 'さがす', class: "btn btn-link" %><br>
   <% if @search_words.nil? == false %>
