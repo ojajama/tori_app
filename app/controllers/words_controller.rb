@@ -109,7 +109,7 @@ class WordsController < ApplicationController
   def get_words
      # @words = Word.all.order(id:"DESC").page(params[:page]).per(20)
      @q = current_user
-       if params["commit"] == "自分の尻取り一覧"
+       if params["commit"] == "自分の尻取りだけ"
         session[:flag] = 1
         @words = @q.words.order(id: "DESC").page(params[:page]).per(20)
       else
