@@ -19,11 +19,11 @@ function koshin(){
 </div>
 
 <p>
-  <div class="input-sm">
+  <div class="input-sm" align="right">
   <% unless current_user.username == "名無しの権兵衛" %>
     <%= form_for(@q, url: words_path, method: :get) do |f| %>
-      <%= image_tag 'yubiMizu.png', :size => '15x10' %>&nbsp;&nbsp;<%= f.submit '自分の尻取り一覧', class: "btn btn-list" %>
-      &nbsp;&nbsp;&nbsp;<%= image_tag 'yubiMizu.png', :size => '15x10' %>&nbsp;&nbsp;<%= link_to "全尻取り一覧", words_path(sort_flag: 1), type: "button", class: "btn btn-list" %>
+      <%= image_tag 'yubiMizu.png', :size => '15x10' %>&nbsp;&nbsp;<%= f.submit '自分の尻取りだけ', class: "btn btn-list" %><br><br>
+      <%= image_tag 'yubiMizu.png', :size => '15x10' %>&nbsp;&nbsp;<%= link_to "尻取り一覧に戻す", words_path(sort_flag: 1), type: "button", class: "btn btn-list" %>
     <% end %>
   <% end %>
   </div>
@@ -45,10 +45,12 @@ function koshin(){
   <% end %>
 
 <hr>
+<hr>
+<hr>
 
   <div class="row">
 
-  <div class="form-group col-xs-5">
+  <div class="form-group col-xs-6">
     <!-- <form class="form-inline"> -->
       <%= f.label :content, 'ひらがなかカタカナで！', class: 'input-sm' %>
       <%= f.text_field :content, autofocus: true, class: 'form-control, input-lg' %><br>
@@ -77,22 +79,21 @@ function koshin(){
 <%= search_form_for @search do |f| %>
   <%= f.label :content_eq, 'もうあるかな' %>
   &nbsp;&nbsp;<%= f.text_field :content_eq %>
-  &nbsp;&nbsp;<%= image_tag 'yubiMizu.png', :size => '15x10' %><%= f.submit 'さがす', class: "btn btn-link" %>
+  &nbsp;&nbsp;<%= image_tag 'yubiMizu.png', :size => '15x10' %><%= f.submit 'さがす', class: "btn btn-link" %><br>
   <% if @search_words.nil? == false %>
    <% @search_words.each do |sw| %>
-     ⇒あった！【<%= link_to sw.content, sw %>】
+     <%= image_tag 'yubiMomo.png', :size => '9x6' %>あった！【<%= link_to sw.content, sw %>】
    <% end %>
    <% if @search_words == [] %>
-     ⇒ない</p>
+     <%= image_tag 'yubiMomo.png', :size => '9x6' %>ない</p>
    <% end %>
   <% end %>
 <% end %>
 </div>
 
-
 <p>
 <!-- <div align=center class="input-sm"> -->
-<div align=center><%= paginate @words, :window => 5 %><br></div>
+<div align=center><%= paginate @words, :window => 3 %><br></div>
 
 <p>
 
@@ -145,7 +146,7 @@ function koshin(){
 </table>
 
 <!-- <div align=center class="input-sm"> -->
-<div align=center><%= paginate @words, :window => 5 %><br></div>
+<div align=center><%= paginate @words, :window => 3 %><br></div>
 
 <!-- <p>ユーザーID（開発用に表示）：<%#= current_user.id %>
 <%#= link_to current_user.username, words_path(current_user) %></p> -->
