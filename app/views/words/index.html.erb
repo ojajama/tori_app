@@ -50,7 +50,7 @@ function koshin(){
 
   <div class="row">
 
-  <div class="form-group col-xs-6">
+  <div class="form-group col-xs-9">
     <!-- <form class="form-inline"> -->
       <%= f.label :content, 'ひらがなかカタカナで！', class: 'input-sm' %>
       <%= f.text_field :content, autofocus: true, class: 'form-control, input-lg' %><br>
@@ -58,13 +58,13 @@ function koshin(){
     <!-- </form> -->
   </div>
 
-  <div class="form-group col-xs-3 input-sm">
+  <!-- <div class="form-group col-xs-3 input-sm">
   <% unless current_user.username == "名無しの権兵衛" %>
   <%# これはコントローラーが呼び出されないのと、後ここでエディットの画面のボタンが表示されるのはおかしいので、コメントアウトにしています。 %>
   <%# link_to 'なおす', edit_word_path(@new_word), class: "btn btn-link" %>
   <%#= link_to 'やめる', @new_word, method: :delete, data: { confirm: '例文も消えちゃうよ' }, class: "btn btn-link" %>
   <% end %>
-  </div>
+  </div> -->
 
   <div class="form-group col-xs-3 input-sm">
       <%= image_tag 'yubiMizu.png', :size => '15x10' %>&nbsp;&nbsp;<%= f.label :category, 'お題は' %>
