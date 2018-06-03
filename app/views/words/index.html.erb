@@ -13,7 +13,7 @@ function koshin(){
 
 <% unless @new_word.nil? %>
   <h1>【<%= @new_word.content %>】</h1>
-  <form><%= image_tag 'yubiMizu.png', :size => '30x20' %><input class="btn btn-link" type="button" value="最新の尻取り" onclick="koshin()">かな？</form>
+  <form><%= image_tag 'yubiMizu.png', :size => '30x20' %><input class="btn btn-link" type="button" value="最新の尻取り？" onclick="koshin()"></form>
 <% end %>
 
 </div>
@@ -55,7 +55,7 @@ function koshin(){
   <div class="form-group">
     <!-- <form class="form-inline"> -->
       <%= f.label :content, 'ひらがなかカタカナで！', class: 'input-sm' %>
-      <%= f.text_field :content, autofocus: true, class: 'form-control, input-lg' %>&nbsp;
+      <%= f.text_field :content, autofocus: true, class: 'form-control, input-lg' %><br>
       <%= image_tag 'yubiMizu.png', :size => '30x20' %><%= f.submit '尻取り！', class: 'btn btn-link' %>
     <!-- </form> -->
   </div>
@@ -72,10 +72,10 @@ function koshin(){
 
 </div>
 
-<div class="input-sm" align="center">
+<div class="input-sm" align="right">
 <%= search_form_for @search do |f| %>
-  <%= f.label :content_eq, 'この尻取り、もうあるかな' %>
-  &nbsp;&nbsp;<%= f.text_field :content_eq %>
+  <%= f.label :content_eq, 'この尻取り、もうあるかどうか' %><br>
+  &nbsp;&nbsp;<%= f.text_field :content_eq %><br>
   &nbsp;&nbsp;<%= image_tag 'yubiMizu.png', :size => '15x10' %><%= f.submit 'さがす', class: "btn btn-link" %><br>
   <% if @search_words.nil? == false %>
    <% @search_words.each do |sw| %>
@@ -88,6 +88,7 @@ function koshin(){
 <% end %>
 </div>
 
+<hr>
 <p>
 <!-- <div align=center class="input-sm"> -->
 <div align=center><%= paginate @words, :window => 3 %><br></div>
