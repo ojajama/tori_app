@@ -2,43 +2,47 @@
     <div>
     <dl>
       <dt>尻取りとは：</dt>
-      <dd>前のことばの最後の音で始まることばを、順ぐりに続けていく、ことば遊び</dd>
+      <dd>前のことばの最後の音で始まることばを順ぐりに続けていくことば遊び</dd>
     </dl>
     <dl>
       <dt>言葉づくしとは：</dt>
-      <dd>Web上で利用できる、ことばの例文集（尻取りとともに充実）</dd>
+      <dd>web上で利用できる、ことばの例文集</dd>
     </dl>
 
     <p><strong>ゆる〜い「尻取りルール」</strong>
-      <div>
-       <p><strong>&nbsp;＊前のことばが「んンゃゅょっャュョッぁぃぅぇぉァィゥェォー」で終わったら、</strong>
+      <div class="small">
+       <p><strong>前のことばが「んンゃゅょっャュョッぁぃぅぇぉァィゥェォー」で終わっていたら、その直前の音で、次のことばを始める</strong>
         <ul style="list-style:none">
-          <li><strong>その《直前の音》で〈次のことばを始め〉る</strong></li>
-          <li>例)&nbsp;かん《ら》ん➡〈ら〉ん《し》ゃ➡〈し〉ゅう《た》ぁ➡〈た〉ん《じ》ゅん➡〈じ〉《ろ》ー➡〈ろ〉うれい</li>
+          <li>たとえば、&nbsp;かん<strong><mark>ら</mark></strong>ん&nbsp;<%= image_tag 'yubi.png', :size => '12x8' %>
+            <strong><mark>ら</mark></strong>ん<strong><mark>し</mark></strong>ゃ&nbsp;<%= image_tag 'yubi.png', :size => '12x8' %>
+            <strong><mark>し</mark></strong>ゅう<strong><mark>た</mark></strong>ぁ&nbsp;<%= image_tag 'yubi.png', :size => '12x8' %>
+            <strong><mark>た</mark></strong>ん<strong><mark>じ</mark></strong>ゅん&nbsp;<%= image_tag 'yubi.png', :size => '12x8' %>
+            <strong><mark>じ</mark></strong><strong><mark>ろ</mark></strong>ー&nbsp;<%= image_tag 'yubi.png', :size => '12x8' %>
+            <strong><mark>ろ</mark></strong>うれい</li>
         </ul>
-      <p><strong>&nbsp;＊同じ音のことばを何度使ってもいい</strong>
+      <p><strong>同じ音のことばを何度使ってもいい</strong>
         <ul style="list-style:none">
             <div>
             <dl>
               <dt>普通の尻取りでは、</dt>
-              <dd>同じ音のことばを使うと、さっき使ったからダメなんて言うが…。</dd>
+              <dd>同じ音のことばは、さっき使ったからダメなんて言うけど…</dd>
             </dl>
           <% if current_user.username == "名無しの権兵衛" %>
             <dl>
-              <dt>続きは、「名を残す」か、ログインしてから…。</dt>
+              <dt>続きは、「名を残す」か、ログインしてから…</dt>
             </dl>
           <% else %>
             <dl>
-              <dt>同じ音のことばがあったら、そのことばを使った例文を書いて。</dt>
-              <dd>例)&nbsp;【こうとう】「口頭試験」「高等学校」「物価が高騰」「口答で伝える」「エースの好投で勝利」「江東区在住」</dd>
+              <dt>同じ音のことばがあったら、そのことばを使った例文を書いて！</dt>
+              <dd>たとえば、【こうとう】なら、「口頭試験／高等学校／物価が高騰する／口答で伝える／エースの好投で勝利／江東区在住」など</dd>
             </dl>
             <dl>
-              <dt>同じ音のことばでなければ、</dt>
-              <dd>例文は書かなくてもいいけれど、書いてくれたら嬉しい。</dd>
+              <dt>例文を書かなくても、尻取りは続けられるけど、</dt>
+              <dd>どんなことばであれ、例文を書いてくれると嬉しい</dd>
             </dl>
             <dl>
               <dt>尻取りしながら、</dt>
-              <dd>素敵な、著作権フリーの例文集を作るのさ、と、（食えぬ）狸の皮算用。</dd>
+              <dd>著作権フリーの素敵な例文集を作るのさ！と(食えぬ)狸の皮算用</dd>
             </dl>
             <% end %>
           </div>

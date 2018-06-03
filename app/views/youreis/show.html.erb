@@ -1,10 +1,10 @@
 <% breadcrumb :yourei, @youreis %>
 
-<h2>【<%= @yourei.word.content %>】</h2>
-
+<h2 align="center">【<%= @yourei.word.content %>】</h2>
 <div class="input-sm">尻取りのお題は...<%= @yourei.word.category %></div>
+
+<h1 align="center"><% @yourei.id %><%= @yourei.content %></h1>
 <div class="input-sm">例文のお題は...<%= @yourei.category %></div>
-<h1><% @yourei.id %><%= @yourei.content %></h1>
 
 <p>
   <%= image_tag 'yubiMizu.png', :size => '15x10' %><%= link_to '尻取り一覧', words_path, class: "btn btn-link" %>

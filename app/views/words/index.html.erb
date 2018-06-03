@@ -7,12 +7,16 @@ function koshin(){
 
 <% breadcrumb :words %>
 
+<div align="center">
+
 <h3>尻取りしましょ</h3>
 
 <% unless @new_word.nil? %>
   <h1>【<%= @new_word.content %>】</h1>
   <form><%= image_tag 'yubiMizu.png', :size => '30x20' %><input class="btn btn-link" type="button" value="最新の尻取り" onclick="koshin()">かどうか確かめる</form>
 <% end %>
+
+</div>
 
 <p>
   <div class="input-sm">
@@ -46,8 +50,8 @@ function koshin(){
 
   <div class="form-group col-xs-5">
     <!-- <form class="form-inline"> -->
-      <%= f.label :content, 'ひらがなかカタカナで書いて！', class: 'input-sm' %>
-      <%= f.text_field :content, autofocus: true, class: 'form-control' %>
+      <%= f.label :content, 'ひらがなかカタカナで！', class: 'input-sm' %>
+      <%= f.text_field :content, autofocus: true, class: 'form-control, input-lg' %>
       <%= image_tag 'yubiMizu.png', :size => '30x20' %><%= f.submit '尻取り！', class: 'btn btn-link' %>
     <!-- </form> -->
   </div>
@@ -60,8 +64,8 @@ function koshin(){
   <% end %>
   </div>
 
-  <div class="form-group col-xs-3 input-smｓ">
-      <%= image_tag 'yubiMizu.png', :size => '15x10' %>&nbsp;&nbsp;<%= f.label :category, 'お題を決める' %>
+  <div class="form-group col-xs-3 input-sm">
+      <%= image_tag 'yubiMizu.png', :size => '15x10' %>&nbsp;&nbsp;<%= f.label :category, 'お題は' %>
       <%= f.collection_select :category, Category.all, :content,:content, include_blank: true, selected: session[:category]%>
   </div>
 
@@ -69,7 +73,7 @@ function koshin(){
 
 </div>
 
-<div class="input-sm">
+<div class="input-sm" align="center">
 <%= search_form_for @search do |f| %>
   <%= f.label :content_eq, 'もうあるかな' %>
   &nbsp;&nbsp;<%= f.text_field :content_eq %>
@@ -88,7 +92,7 @@ function koshin(){
 
 <p>
 <!-- <div align=center class="input-sm"> -->
-<div align=center><%= paginate @words, :window => 10 %><br></div>
+<div align=center><%= paginate @words, :window => 5 %><br></div>
 
 <p>
 
@@ -141,7 +145,7 @@ function koshin(){
 </table>
 
 <!-- <div align=center class="input-sm"> -->
-<div align=center><%= paginate @words, :window => 10 %><br></div>
+<div align=center><%= paginate @words, :window => 5 %><br></div>
 
 <!-- <p>ユーザーID（開発用に表示）：<%#= current_user.id %>
 <%#= link_to current_user.username, words_path(current_user) %></p> -->

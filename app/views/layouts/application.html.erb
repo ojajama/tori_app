@@ -24,6 +24,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <!-- HONOKA Bootstrap JavaScript-->
     <!-- <script src="/app/assets/honoka/js/bootstrap.min.js"></script> -->
+    <script type="text/javascript" src="./footerFixed.js"></script>
 
    </head>
 
@@ -67,6 +68,10 @@
       </nav>
     </header>
 
+    <div align="right" class="input-sm">
+      登録やログインはこちら！&nbsp;<%= image_tag 'yubiUe.png' %>
+    </div>
+
     <div class="container">
       <%= render 'layouts/flash_messages' %>
 
@@ -75,13 +80,14 @@
       <%= yield %>
     </div>
 
-   <footer>
+   <hr>
+
+   <div id="footer">
      <!-- <div class="footer navbar-fixed-bottom"> -->
-        <p align=center>&copy;2018 尻取り -言葉づくし-</p>
-        <p align=center><a href ="http://www.yk.rim.or.jp/~ameagari/">なんでんよか！</a><br>
-          (shift_jis・unicode混在)</p>
+        <p align=center><small>&copy;2018 尻取り -言葉づくし-</small></p>
+        <p align=center><a href ="http://www.yk.rim.or.jp/~ameagari/"><small>なんでんよか！</a></small></p>
      <!-- </div> -->
-   </footer>
+   </div>
 
   </body>
 </html>

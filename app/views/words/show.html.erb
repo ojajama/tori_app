@@ -21,7 +21,7 @@
   <div class="form-group">
     <%= form_for(@yourei) do |f| %>
     <div class="input-sm col-xs-3">
-        <%= image_tag 'yubiMizu.png', :size => '15x10' %>&nbsp;&nbsp;<%= f.label :category, 'お題を決める' %>
+        <%= image_tag 'yubiMizu.png', :size => '15x10' %>&nbsp;&nbsp;<%= f.label :category, 'お題は' %>
         <%= f.collection_select :category, Category.all, :content,:content, include_blank: true, selected: session[:category]%>
     </div>
     <div class="col-xs-9">
