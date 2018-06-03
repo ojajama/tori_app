@@ -5,14 +5,14 @@
 <div class="row">
 
   <div class="input-sm">
-    尻取りしたのは [<%= @word.user.username %>]&nbsp;&nbsp;&nbsp;
-    尻取りのお題は...<%= @word.category %></div>
+    &nbsp;&nbsp;&nbsp;尻取りした人 [<%= @word.user.username %>]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    尻取りのお題...<%= @word.category %></div>
   </div>
 
   <div class="input-sm">
     <dl>
-      <dt>例)【こうとう】</dt>
-      <dd>「口頭試験」「高等学校」「物価が高騰」「口答で伝える」「エースの好投で勝利」「江東区在住」</dd>
+      <dt>【こうとう】だったら、</dt>
+      <dd>&nbsp;&nbsp;&nbsp;「口頭試験」「高等学校」「物価が高騰」「口答で伝える」「エースの好投で勝利」「江東区在住」</dd>
     </dl>
   </div>
 
@@ -21,15 +21,14 @@
   <div class="form-group">
     <%= form_for(@yourei) do |f| %>
     <div class="input-sm col-xs-3">
-        <%= f.label :category, '例文のお題' %>
-        <!-- <%= f.text_field :category, class: 'form-control' %> -->
-        <%= f.select :category, [["", ""], ["作り事","作り事"], ["生き物","生き物"], ["食い物","食い物"], ["飲み物","飲み物"], ["乗り物","乗り物"], ["形容詞","形容詞"], ["動詞","動詞"]], class: 'form-control' %>
+        <%= image_tag 'yubiMizu.png', :size => '15x10' %>&nbsp;&nbsp;<%= f.label :category, 'お題を決める' %>
+        <%= f.collection_select :category, Category.all, :content,:content, include_blank: true, selected: session[:category]%>
     </div>
     <div class="col-xs-9">
       <%= f.label :content, '例文' %>
       <%= f.text_field :content, autofocus: true, class: 'form-control' %>
       <%= hidden_field_tag :word_id, @word.id %>
-      <%= f.submit 'こんな使い方！', class: "btn btn-link" %>
+      <%= image_tag 'yubiMizu.png', :size => '30x20' %><%= f.submit 'こんな使い方！', class: "btn btn-link" %>
     </div>
     <% end %>
   </div>

@@ -113,11 +113,18 @@ class WordsController < ApplicationController
         session[:flag] = 1
         @words = @q.words.order(id: "DESC").page(params[:page]).per(20)
       else
-        session[:flag] = 0
+        # session[:flag] = 0
         @words = Word.all.order(id:"DESC").page(params[:page]).per(20)
       end
+
       if session[:flag] == 1
         @words = @q.words.order(id: "DESC").page(params[:page]).per(200)
+      end
+
+      if session[:flag] == 1 && params[:sort_flag].to_i == 1
+        # binding.pry
+        session[:flag] = 0
+        @words = Word.all.order(id:"DESC").page(params[:page]).per(20)
       end
   end
 

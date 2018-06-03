@@ -1,8 +1,9 @@
 <h3 align="center">尻取りしましょ</h3>
 
-<h6 align="center">次のことばをクリックして、平仮名か片仮名で、続けて！</h6>
+<h4 align="center"></h6>
+
 <% unless @word.nil? %>
-  <h1 align="center">【<%= link_to @word.content, words_path %>】</h1>
+  <h1 align="center"><%= image_tag 'yubiMizu.png', :size => '30x20' %>【<%= link_to @word.content, words_path %>】</h1>
 <% end %>
 
 <div class="container">

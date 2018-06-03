@@ -11,15 +11,15 @@ function koshin(){
 
 <% unless @new_word.nil? %>
   <h1>【<%= @new_word.content %>】</h1>
-  <form>念のため、<input class="btn btn-link" type="button" value="最新の尻取りに！" onclick="koshin()"></form>
+  <form><%= image_tag 'yubiMizu.png', :size => '30x20' %><input class="btn btn-link" type="button" value="最新の尻取り" onclick="koshin()">かどうか確かめる</form>
 <% end %>
 
 <p>
   <div class="input-sm">
   <% unless current_user.username == "名無しの権兵衛" %>
     <%= form_for(@q, url: words_path, method: :get) do |f| %>
-      <%= f.submit '自分の尻取り一覧', class: "btn btn-list" %>
-      <%= link_to "全尻取り一覧", words_path, type: "button", class: "btn btn-list" %>
+      <%= image_tag 'yubiMizu.png', :size => '15x10' %>&nbsp;&nbsp;<%= f.submit '自分の尻取り一覧', class: "btn btn-list" %>
+      &nbsp;&nbsp;&nbsp;<%= image_tag 'yubiMizu.png', :size => '15x10' %>&nbsp;&nbsp;<%= link_to "全尻取り一覧", words_path(sort_flag: 1), type: "button", class: "btn btn-list" %>
     <% end %>
   <% end %>
   </div>
@@ -40,27 +40,29 @@ function koshin(){
     </div>
   <% end %>
 
-<div class="row">
+<hr>
+
+  <div class="row">
 
   <div class="form-group col-xs-5">
     <!-- <form class="form-inline"> -->
-      <%= f.label :content, '次は…' %>
+      <%= f.label :content, 'ひらがなかカタカナで書いて！', class: 'input-sm' %>
       <%= f.text_field :content, autofocus: true, class: 'form-control' %>
-      <%= f.submit '尻取り！', class: 'btn btn-link' %>
+      <%= image_tag 'yubiMizu.png', :size => '30x20' %><%= f.submit '尻取り！', class: 'btn btn-link' %>
     <!-- </form> -->
   </div>
 
   <div class="form-group col-xs-3 input-sm">
   <% unless current_user.username == "名無しの権兵衛" %>
   <%# これはコントローラーが呼び出されないのと、後ここでエディットの画面のボタンが表示されるのはおかしいので、コメントアウトにしています。 %>
-  <%# link_to 'なおす', edit_word_path(@new_word), class: "btn btn-link" %><br>
-    <%= link_to 'やめる', @new_word, method: :delete, data: { confirm: '例文も消えちゃうよ' }, class: "btn btn-link" %>
+  <%# link_to 'なおす', edit_word_path(@new_word), class: "btn btn-link" %>
+  <%#= link_to 'やめる', @new_word, method: :delete, data: { confirm: '例文も消えちゃうよ' }, class: "btn btn-link" %>
   <% end %>
   </div>
 
-  <div class="form-group col-xs-3 input-sm">
-      <%= f.label :category, 'お題を決める' %>
-      <%= f.select :category, [["", ""], ["作り事","作り事"], ["生き物","生き物"], ["食い物","食い物"], ["飲み物","飲み物"], ["乗り物","乗り物"], ["形容詞","形容詞"], ["動詞","動詞"]], selected: session[:category], class: 'form-control' %>
+  <div class="form-group col-xs-3 input-smｓ">
+      <%= image_tag 'yubiMizu.png', :size => '15x10' %>&nbsp;&nbsp;<%= f.label :category, 'お題を決める' %>
+      <%= f.collection_select :category, Category.all, :content,:content, include_blank: true, selected: session[:category]%>
   </div>
 
 <% end %>
@@ -69,9 +71,9 @@ function koshin(){
 
 <div class="input-sm">
 <%= search_form_for @search do |f| %>
-  <%= f.label :content_eq, 'もうあるか' %>
-  <%= f.text_field :content_eq %>
-  <%= f.submit 'さがす', class: "btn btn-link" %>
+  <%= f.label :content_eq, 'もうあるかな' %>
+  &nbsp;&nbsp;<%= f.text_field :content_eq %>
+  &nbsp;&nbsp;<%= image_tag 'yubiMizu.png', :size => '15x10' %><%= f.submit 'さがす', class: "btn btn-link" %>
   <% if @search_words.nil? == false %>
    <% @search_words.each do |sw| %>
      ⇒あった！【<%= link_to sw.content, sw %>】
@@ -129,7 +131,7 @@ function koshin(){
     <% if current_user.username == "名無しの権兵衛" %>
     <td class="input-sm">ログインを...</td>
     <% else %>
-    <td><%= link_to "➡", word, class: "btn btn-primary" %></td>
+    <td><%= link_to image_tag('yubiMizu.png', {:size => '21x14', :alt => '例文見て'}), word %></td>
    <% end %>
   </tr>
   <% end %>
