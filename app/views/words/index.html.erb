@@ -22,8 +22,8 @@ function koshin(){
   <div class="input-sm" align="right">
   <% unless current_user.username == "名無しの権兵衛" %>
     <%= form_for(@q, url: words_path, method: :get) do |f| %>
-      <%= image_tag 'yubiMizu.png', :size => '15x10' %>&nbsp;&nbsp;<%= f.submit '自分の尻取りだけ', class: "btn btn-list" %><br><br>
-      <%= image_tag 'yubiMizu.png', :size => '15x10' %>&nbsp;&nbsp;<%= link_to "尻取り一覧に戻す", words_path(sort_flag: 1), type: "button", class: "btn btn-list" %>
+      <%= image_tag 'yubiMizu.png', :size => '15x10' %>&nbsp;&nbsp;<%= f.submit '自分の尻取りだけ', class: "btn #{ 'btn-primary' if session[:flag] == 1}" %><br><br>
+      <%= image_tag 'yubiMizu.png', :size => '15x10' %>&nbsp;&nbsp;<%= link_to "尻取り一覧に戻す", words_path(sort_flag: 1), type: "button", class: "btn #{ 'btn-list' if session[:flag] == 0}" %>
     <% end %>
   <% end %>
   </div>
@@ -114,7 +114,21 @@ function koshin(){
   <% @words.each do |word| %>
 
     <tr>
-    <td><%= word.user.username %></td>
+
+      <% if current_user.username != "名無しの権兵衛" %>
+        <%if current_user.username == word.user.username %>
+          <td class="btn btn-primary"><%= word.user.username %></td>
+        <% else %>
+          <td><%= word.user.username %></td>
+        <% end %>
+      <%else%>
+          <td><%= word.user.username %></td>
+      s<%end%>
+
+    <!-- <td>
+      <%= word.user.username %>
+    </td> -->
+
     <td>【<%= word.content %>】</td>
     <td class="input-sm"><%= word.category %></td>
     <%
