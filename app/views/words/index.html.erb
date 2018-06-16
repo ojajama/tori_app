@@ -116,14 +116,14 @@ function koshin(){
     <tr>
 
       <% if current_user.username != "名無しの権兵衛" %>
-        <%if current_user.username == word.user.username %>
+        <% if current_user.username == word.user.username %>
           <td class="btn btn-primary"><%= word.user.username %></td>
         <% else %>
           <td><%= word.user.username %></td>
         <% end %>
       <%else%>
           <td><%= word.user.username %></td>
-      s<%end%>
+      <%end%>
 
     <!-- <td>
       <%= word.user.username %>
