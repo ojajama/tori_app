@@ -117,7 +117,7 @@ function koshin(){
 
       <% if current_user.username != "名無しの権兵衛" %>
         <% if current_user.username == word.user.username %>
-          <td class="btn btn-primary"><%= word.user.username %></td>
+          <td class="btn btn-primary"><%= link_to word.user.username, edit_user_registration_path, class: "jibun" %></td>
         <% else %>
           <td><%= word.user.username %></td>
         <% end %>
