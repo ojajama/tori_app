@@ -4,18 +4,18 @@ function koshin(){
   location.reload();
 };
 
-// function speechButton(){
-//
-//   var synthes = new SpeechSynthesisUtterance();
-//   synthes.voiceURI = 1;
-//   synthes.volume = 1;
-//   synthes.rate = 1;
-//   synthes.pitch = 1;
-//   synthes.text = '<%= @new_word.content %>';
-//   synthes.lang = 'ja-JP';
-//   speechSynthesis.speak(synthes);
-//
-// };
+function speechButton(){
+
+  var synthes = new SpeechSynthesisUtterance();
+  synthes.voiceURI = 1;
+  synthes.volume = 1;
+  synthes.rate = 1;
+  synthes.pitch = 1;
+  synthes.text = '<%= @new_word.content %>';
+  synthes.lang = 'ja-JP';
+  speechSynthesis.speak(synthes);
+
+};
 
 </script>
 
@@ -29,7 +29,7 @@ function koshin(){
 <% unless @new_word.nil? %>
   <h1>【<%= @new_word.content %>】</h1>
   <form><%= image_tag 'yubiMizu.png', :size => '30x20' %><input class="btn btn-link" type="button" value="最新の尻取り？" onclick="koshin()"></form>
-  <!-- <form><input class="btn btn-link" type="button" value="読み上げる" onclick="speechButton()"><%= image_tag 'sound2.png', :size => '30x20' %></form> -->
+  <form><input class="btn btn-link" type="button" value="読み上げる" onclick="speechButton()"><%= image_tag 'sound2.png', :size => '30x20' %></form>
 <% end %>
 
 
