@@ -5,7 +5,6 @@ function koshin(){
 };
 
 function speechButton(){
-
   var synthes = new SpeechSynthesisUtterance();
   synthes.voiceURI = 1;
   synthes.volume = 1;
@@ -14,7 +13,6 @@ function speechButton(){
   synthes.text = '<%= @new_word.content %>';
   synthes.lang = 'ja-JP';
   speechSynthesis.speak(synthes);
-
 };
 
 </script>
@@ -31,7 +29,6 @@ function speechButton(){
   <form><%= image_tag 'yubiMizu.png', :size => '30x20' %><input class="btn btn-link" type="button" value="最新の尻取り？" onclick="koshin()"></form>
   <form><input class="btn btn-link" type="button" value="読み上げる" onclick="speechButton()"><%= image_tag 'sound2.png', :size => '30x20' %></form>
 <% end %>
-
 
 </div>
 
@@ -74,6 +71,7 @@ function speechButton(){
       <%= f.label :content, 'ひらがなかカタカナで！', class: 'input-sm' %>
       <%= f.text_field :content, autofocus: true, class: 'form-control, input-lg' %><br>
       <%= image_tag 'yubiMizu.png', :size => '30x20' %><%= f.submit '尻取り！', class: 'btn btn-link' %>
+
     <!-- </form> -->
   </div>
 
