@@ -6,16 +6,14 @@ crumb :words do
    link "尻取り一覧", words_path
 end
 
-crumb :youreis do |yourei|
-   link "例文集", words_path
-   #link "用例集", word_path
-   #この一つ前に戻りたいが、リンク先の書き方が分からない
+crumb :youreis do |word|
+   link word.content, word_path(word)
    parent :words
 end
 
 crumb :yourei do |yourei|
-   link "例文", words_path
-   parent :youreis
+   link "例文", yourei_path(yourei)
+   parent :youreis, yourei
 end
 
 # crumb :project_issues do |project|

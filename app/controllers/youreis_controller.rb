@@ -8,6 +8,7 @@ class YoureisController < ApplicationController
 
   def show
     @yourei = Yourei.find(params[:id])
+    @word = @yourei.word
   end
 
   def create
