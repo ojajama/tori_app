@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'rooms/show'
+
   get 'youreis/create'
 
   get 'youreis/destroy'
