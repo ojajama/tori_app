@@ -1,10 +1,16 @@
 <h1>尻取りでお喋り</h1>
 
+<hr>
+
+<!-- <div align=center><%#= paginate @dialogues, :window => 3 %><br></div> -->
+
 <div id="dialogues">
   <%= render @dialogues %>
 </div>
 
+<hr>
+
 <form>
-  <label>Say！</label><br>
-  <input type="text" data-behavior="room_speaker">
+  <label>どーぞ！</label><br>
+  <input type="text" data-behavior="room_speaker" autofocus="true">
 </form>
