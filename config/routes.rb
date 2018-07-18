@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  resources :rooms
+
   get 'rooms/show'
 
   get 'youreis/create'
