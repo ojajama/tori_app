@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
 
-  resources :rooms
-
   get 'rooms/show'
 
   get 'youreis/create'
@@ -23,5 +21,15 @@ Rails.application.routes.draw do
   resources :words
 
   resources :youreis
+
+  resources :rooms
+
+  resources :groups
+
+  resources :users, :only => [:show, :index]
+
+  resources :terms, :only => [:create]
+
+  resources :teams
 
 end

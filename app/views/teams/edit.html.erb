@@ -1,0 +1,9 @@
+<h2>尻取りはじめ</h2>
+<hr>
+<%= form_for @team do |f| %>
+  <%= f.label :vocabulary %>
+  <%= f.text_field :vocabulary, :class => "form-control my-form", :placeholder => "ことばを書いて" %>
+  <br>
+  <%= f.submit "はじめのことば", :class => "btn btn-success" %>
+<% end %>
+<hr>

@@ -4,6 +4,7 @@ class Dialogue < ApplicationRecord
   after_create_commit { DialogueBroadcastJob.perform_later self }
 
   has_many :groups
+  has_many :users, through: :groups
 
   validates :content, presence: true, length: { maximum: 511 }
 

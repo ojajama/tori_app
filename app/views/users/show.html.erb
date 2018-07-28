@@ -1,0 +1,22 @@
+<h1><%= @user.username %>さん</h1>
+<hr>
+<% unless @user.id == current_user.id %>
+  <%= form_for @team do |f| %>
+    <%= fields_for @sametime do |s| %>
+      <%= s.hidden_field :user_id, :value => @user.id %>
+    <% end %>
+    <%= image_tag 'yubiMizu.png', :size => '30x20' %><%= f.submit '尻取り始めよう', class: 'btn btn-link' %>
+  <% end %>
+<% end %>
+<% if @user.id == current_user.id %>
+  <h1>尻取りはじめのことば</h1>
+    <hr>
+    <% @sametimes.each do |s| %>
+      <p><a href="/teams/<%= s.team.id %>"><strong><%= s.team.vocabulary %></strong></a></p>
+      <hr>
+    <% end %>
+    <a href="/teams" class="btn btn-info">尻取りはじめのことば</a>
+  </div>
+<% end %>
+<hr>
+<p><a href="/users" class="btn btn-primary">尻取りするのは…</a></p>

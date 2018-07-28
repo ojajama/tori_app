@@ -45,11 +45,11 @@
           <div class="navbar-collapse collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-left">
 
-              <li class="navbar-text"><%= link_to current_user.username, words_path(current_user) %></li>
+              <li class="navbar-text"><%= link_to current_user.username+"#{"さん"}", words_path(current_user) %></li>
 
               <% if current_user.username == "名無しの権兵衛" %>
 
-              <li class="navbar-text"><%= link_to '名を残す', new_user_registration_path %></li>
+              <li class="navbar-text"><%= link_to '名前を登録', new_user_registration_path %></li>
               <li class="navbar-text"><%= link_to 'ログイン', new_user_session_path %></li>
 
               <% elsif current_user.username == "ojajama" %>
@@ -58,8 +58,9 @@
 
               <% else %>
 
-              <li class="navbar-text"><%= link_to '名を変える', edit_user_registration_path %></li>
+              <li class="navbar-text"><%= link_to '名前を変える', edit_user_registration_path %></li>
               <li class="navbar-text"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+              <li class="navbar-text"><%= link_to '誰かと尻取り', users_path %></li>
 
               <% end %>
             </ul>

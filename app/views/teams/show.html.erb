@@ -1,0 +1,47 @@
+<br>
+<div class="row">
+  <div class="col-xs-3 text-center">
+    <h4><%= @team.vocabulary %>から続けているのは…</h4>
+    <% @sametimes.each do |s| %>
+      <h5><strong><a href="/users/<%= s.user.id %>"><%= s.user.username %>さん</a></strong></h5>
+    <% end %>
+    <hr>
+    <a href="/teams/<%= @team.id %>/edit" class="btn btn-success">尻取りはじめ</a>
+
+    <% if @terms.present? %>
+      <% @terms.each do |t| %>
+        <% if t.id == current_user.id %>
+          <h4 class="text-right">
+          <p class="alert alert-success">
+          <%= t.content %>
+          <br><br>
+          <small><strong><a href="/users/<%= t.user_id %>"><%= t.user.username %>さん</a></strong></small>
+          </p>
+          </h4>
+        <% else %>
+          <h4 class="text-left">
+          <p class="alert alert-info">
+          <%= t.content %>
+          <br><br>
+          <small><strong><a href="/users/<%= t.user_id %>"><%= t.user.username %>さん</a></strong></small>
+          </p>
+          </h4>
+        <% end %>
+      <% end %>
+    <% else %>
+      <br>
+        <h3 class="text-center">尻取りのはじめはまだない</h3>
+      <br>
+    <% end %>
+    <hr>
+    <%= form_for @term do |f| %>
+      <%= f.text_field :content, :class => "form-control termform", :placeholder => "尻取り続けて" %>
+      <%= f.hidden_field :team_id, :value => @team.id %>
+      <br>
+      <div class="text-center">
+      <%#= image_tag 'yubiMizu.png', :size => '30x20' %><%#= f.submit '尻取り！', class: 'btn btn-link' %>
+      <%= f.submit "尻取り！", :class => "btn btn-primary" %>
+      </div>
+    <% end %>
+  </div>
+</div>

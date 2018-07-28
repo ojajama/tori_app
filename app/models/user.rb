@@ -17,7 +17,11 @@ class User < ApplicationRecord
 
   has_many :words
   has_many :youreis
+
   has_many :groups
   has_many :dialogues, through: :groups
+
+  has_many :sametimes
+  has_many :terms, through: :sametimes
 
 end

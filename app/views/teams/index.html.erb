@@ -1,0 +1,6 @@
+<h1>尻取りはじめ</h1>
+<hr>
+<% @sametimes.each do |s| %>
+  <a href="/teams/<%= s.team_id %>"><%= s.team.vocabulary %></a>
+  <hr>
+<% end %>

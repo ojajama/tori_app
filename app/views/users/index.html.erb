@@ -1,0 +1,6 @@
+<h1>尻取りするのは...</h1>
+<hr>
+<% @users.each do |u| %>
+  <p><a href="/users/<%= u.id %>"><%= u.username %>さん</a></p>
+  <hr>
+<% end %>
